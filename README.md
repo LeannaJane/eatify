@@ -1,66 +1,43 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Eatify: A Comprehensive Meal Planning and Food Management App UI
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+**Eatify** is a user-friendly meal planning and food management app that helps users efficiently organize their kitchen, meal plans, and shopping lists. Designed in Figma, the app includes multiple features that assist users in tracking ingredients, planning meals, creating shopping lists, and sharing family meal plans. This project showcases the **Figma UI** design for the app's interface, which aims to provide a seamless experience for meal planning and kitchen management.
 
-## About Laravel
+## Features
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### 1. **Food Search & Cabinet Tracker**
+   - **Search for items**: Find ingredients and meals using an intuitive search feature.
+   - **Cabinet Inventory**: Users can easily insert and track the items in their kitchen cabinet, helping them keep track of what they already have.
+![image](https://github.com/user-attachments/assets/81f15015-a39e-4d77-8bea-500f0644911c)
+![image](https://github.com/user-attachments/assets/ce89e8fc-36e7-4684-a9af-1345dd39b7ff)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### 2. **Menu**
+   - **Browse Menu**: A variety of food options are available to explore and view, inspiring meal choices based on available ingredients.
+![image](https://github.com/user-attachments/assets/58340372-8c5c-4fbe-86a6-3cc14f825ae0)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### 3. **Weekly Food Planner**
+   - **Plan Meals**: Create a meal plan for the entire week with designated categories (breakfast, lunch, dinner).
+   - **Notes Section**: Add personal notes to any meal in the planner.
+   - **Calendar View**: A calendar format to visualize the meal plan for the week.
 
-## Learning Laravel
+### 4. **Weekly Tracker**
+   - **Track Meals**: A daily tracker for breakfast, lunch, dinner, and snacks.
+   - **Meal Log**: Record what was eaten on each day to maintain a healthy and balanced diet.
+![image](https://github.com/user-attachments/assets/110be014-d58d-4fa0-97b9-fbdc54082162)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### 5. **Shopping List**
+   - **Generate Shopping Lists**: Automatically create shopping lists based on the items required for the planned meals.
+   - **Track Items**: Mark items as purchased and keep track of shopping progress.
+![image](https://github.com/user-attachments/assets/d8ee8d37-2387-4dae-9278-4b856b70bd5b)
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### 6. **Family Share**
+   - **Invite Family**: Users can invite family members to share meal plans, track shopping lists, and collaborate on meal choices.
+   - **Shared Meal Planning**: View and manage meal plans together as a family.
+![image](https://github.com/user-attachments/assets/fcbaf88c-399f-449c-a9a3-21ed870cfc1f)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 7. **Settings**
+   - **Profile Settings**: Edit user profiles, such as name, preferences, and dietary restrictions.
+   - **App Preferences**: Customise app settings to suit individual needs.
+   - **Privacy & Sharing**: Manage privacy settings and sharing preferences for family accounts.
+   - **Account Management**: Update account information, including login and security settings.
+![image](https://github.com/user-attachments/assets/80c8901e-881d-48bb-ace3-644ab1346b0d)
 
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
