@@ -13,7 +13,7 @@
 
 ### 2. **Menu**
    - **Browse Menu**: A variety of food options are available to explore and view, inspiring meal choices based on available ingredients.
-![image](https://github.com/user-attachments/assets/58340372-8c5c-4fbe-86a6-3cc14f825ae0)
+![image](https://github.com/user-attachments/assets/f71e57c4-bbb4-4cf4-bbef-abc43ec22c8a)
 
 ### 3. **Weekly Food Planner**
    - **Plan Meals**: Create a meal plan for the entire week with designated categories (breakfast, lunch, dinner).
