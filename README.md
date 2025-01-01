@@ -23,7 +23,7 @@
 ### 4. **Weekly Tracker**
    - **Track Meals**: A daily tracker for breakfast, lunch, dinner, and snacks.
    - **Meal Log**: Record what was eaten on each day to maintain a healthy and balanced diet.
-![image](https://github.com/user-attachments/assets/110be014-d58d-4fa0-97b9-fbdc54082162)
+![image](https://github.com/user-attachments/assets/ff6b2b2c-16e6-4903-b7e8-b792ec382691)
 
 ### 5. **Shopping List**
    - **Generate Shopping Lists**: Automatically create shopping lists based on the items required for the planned meals.
