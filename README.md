@@ -39,5 +39,5 @@
    - **App Preferences**: Customise app settings to suit individual needs.
    - **Privacy & Sharing**: Manage privacy settings and sharing preferences for family accounts.
    - **Account Management**: Update account information, including login and security settings.
-![image](https://github.com/user-attachments/assets/80c8901e-881d-48bb-ace3-644ab1346b0d)
+![image](https://github.com/user-attachments/assets/e49225a4-8234-454b-a5c3-1acd0a345d23)
 
