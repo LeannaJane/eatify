@@ -4,11 +4,12 @@
 
 ## Features
 
-### 1. **Food Search & Cabinet Tracker**
+### 1. **Meal Finder & Cabinet Tracker**
    - **Search for items**: Find ingredients and meals using an intuitive search feature.
    - **Cabinet Inventory**: Users can easily insert and track the items in their kitchen cabinet, helping them keep track of what they already have.
-![image](https://github.com/user-attachments/assets/81f15015-a39e-4d77-8bea-500f0644911c)
-![image](https://github.com/user-attachments/assets/ce89e8fc-36e7-4684-a9af-1345dd39b7ff)
+![image](https://github.com/user-attachments/assets/9f8c1932-c6c0-41cc-975a-d9cb0b6a40f5)
+![image](https://github.com/user-attachments/assets/1d30f21b-c617-4c51-9728-6d611602c78c)
+
 
 ### 2. **Menu**
    - **Browse Menu**: A variety of food options are available to explore and view, inspiring meal choices based on available ingredients.
@@ -27,12 +28,12 @@
 ### 5. **Shopping List**
    - **Generate Shopping Lists**: Automatically create shopping lists based on the items required for the planned meals.
    - **Track Items**: Mark items as purchased and keep track of shopping progress.
-![image](https://github.com/user-attachments/assets/d8ee8d37-2387-4dae-9278-4b856b70bd5b)
+![image](https://github.com/user-attachments/assets/daa98af6-e390-4646-9597-886c460e9d27)
 
 ### 6. **Family Share**
    - **Invite Family**: Users can invite family members to share meal plans, track shopping lists, and collaborate on meal choices.
    - **Shared Meal Planning**: View and manage meal plans together as a family.
-![image](https://github.com/user-attachments/assets/fcbaf88c-399f-449c-a9a3-21ed870cfc1f)
+![image](https://github.com/user-attachments/assets/faeab730-1fb7-4b7d-adee-eeba72df2ee3)
 
 ### 7. **Settings**
    - **Profile Settings**: Edit user profiles, such as name, preferences, and dietary restrictions.
