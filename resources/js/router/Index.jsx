@@ -20,14 +20,12 @@ const routes = Object.keys(pages).map((path) => {
 
 const Index = () => {
   return (
-    <div>
-        <Routes>
-            {routes.map(({ path, element }) => (
-                <Route key={path} path={path} element={element} />
-            ))}
-            <Route path="/*" element={<div>404 - Not Found</div>} />
-        </Routes>
-    </div>
+      <Routes>
+          {routes.map(({ path, element }) => (
+              <Route key={path} path={path} element={element} />
+          ))}
+          <Route path="/*" element={<div>404 - Not Found</div>} />
+      </Routes>
   )
 }
 
