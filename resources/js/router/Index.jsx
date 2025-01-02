@@ -8,7 +8,7 @@ const routes = Object.keys(pages).map((path) => {
   const routePath = path
     .replace('../pages', '')
     .replace(/\.jsx$/, '')
-    .replace(/index$/i, ''); // Handle index routes
+    .replace(/homepage$/i, ''); // Handle index routes
 
   const Component = pages[path].default;
 
