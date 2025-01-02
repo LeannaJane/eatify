@@ -8,7 +8,7 @@ const routes = Object.keys(pages).map((path) => {
   const routePath = path
     .replace('../pages', '')
     .replace(/\.jsx$/, '')
-    .replace(/index$/i, ''); // Handle index routes
+    .replace(/homepage$/i, ''); // Handle index routes
 
   const Component = pages[path].default;
 
@@ -20,14 +20,12 @@ const routes = Object.keys(pages).map((path) => {
 
 const Index = () => {
   return (
-    <div>
-        <Routes>
-            {routes.map(({ path, element }) => (
-                <Route key={path} path={path} element={element} />
-            ))}
-            <Route path="/*" element={<div>404 - Not Found</div>} />
-        </Routes>
-    </div>
+      <Routes>
+          {routes.map(({ path, element }) => (
+              <Route key={path} path={path} element={element} />
+          ))}
+          <Route path="/*" element={<div>404 - Not Found</div>} />
+      </Routes>
   )
 }
 

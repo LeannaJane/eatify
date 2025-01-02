@@ -3,9 +3,7 @@ import Router from '../router/Index';
 
 const App = () => {
   return (
-    <div>
-        <Router></Router>
-    </div>
+      <Router></Router>
   )
 }
 
