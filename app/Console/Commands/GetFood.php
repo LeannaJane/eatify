@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Models\Meal;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 use Illuminate\Console\Command;
@@ -23,6 +24,7 @@ class GetFood extends Command
     protected $description = 'Get all menus and store in database';
 
     protected $cache_file = 'token_cache.json';
+    protected $food_ids = [3436];
 
     /**
      * Execute the console command.
@@ -30,24 +32,49 @@ class GetFood extends Command
     public function handle()
     {
         $token = $this->generateToken();
-        $client = new Client();
-        $response = $client->get("https://platform.fatsecret.com/rest/server.api", [
-            'form_params' => [
-                'method' => 'foods.search',
-                'search_expression' => 'toast',
-                'format' => 'json'
-            ],
-            'headers' => [
-                'Authorization' => 'Bearer ' . $token,
-                'Content-Type' => 'application/x-www-form-urlencoded'
-            ]
 
-        ]);
+        foreach ($this->food_ids as $food_id) {
+            $client = new Client();
+            $response = $client->get("https://platform.fatsecret.com/rest/server.api", [
+                'form_params' => [
+                    'method' => 'food.get.v4',
+                    'food_id' => $food_id,
+                    'format' => 'json',
+                    'include_food_images' => 'true'
+                ],
+                'headers' => [
+                    'Authorization' => 'Bearer ' . $token,
+                    'Content-Type' => 'application/x-www-form-urlencoded'
+                ]
 
-        $body = $response->getBody();
-        $data = json_decode($body, true);
+            ]);
 
-        print_r($data);
+            $body = $response->getBody();
+            $data = json_decode($body, true);
+
+            $serving = $data['food']['servings']['serving'][0];
+
+            Meal::create([
+                'food_api_id' => $data['food']['food_id'],
+                'name' => $data['food']['food_name'],
+                'calories' => $serving['calories'],
+                'carbohydrate' => $serving['carbohydrate'],
+                'protein' => $serving['protein'],
+                'fat' => $serving['fat'],
+                'saturated_fat' => $serving['saturated_fat'],
+                'polyunsaturated_fat' => $serving['polyunsaturated_fat'],
+                'monounsaturated_fat' => $serving['monounsaturated_fat'],
+                'cholesterol' => $serving['cholesterol'],
+                'sodium' => $serving['sodium'],
+                'potassium' => $serving['potassium'],
+                'fiber' => $serving['fiber'],
+                'sugar' => $serving['sugar'],
+                'vitamin_a' => $serving['vitamin_a'],
+                'vitamin_c' => $serving['vitamin_c'],
+                'calcium' => $serving['calcium'],
+                'iron' => $serving['iron']
+            ]);
+        }
     }
 
     public function generateToken() {
@@ -70,7 +97,7 @@ class GetFood extends Command
             $response = $client->post("https://oauth.fatsecret.com/connect/token", [
                 'form_params' => [
                     'grant_type' => 'client_credentials',
-                    'scope' => 'basic'
+                    'scope' => 'premier'
                 ],
                 'headers' => [
                     'Authorization' => 'Basic ' . base64_encode("$client_id:$client_secret"),
