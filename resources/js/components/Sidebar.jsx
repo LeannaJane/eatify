@@ -52,7 +52,7 @@ const Sidebar = () => {
                     </li>
                     <li className="menu-item">
                         <img src="storage/Images/setting.png" alt="setting" className="menu-icon" />
-                        Settings
+                       <NavLink to="/settingspage">Settings</NavLink>
                     </li>
                 </ul>
                 <div className="light-mode">
