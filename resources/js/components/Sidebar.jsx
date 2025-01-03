@@ -40,7 +40,7 @@ const Sidebar = () => {
                     </li>
                     <li className="menu-item">
                         <img src="storage/Images/fridge.png" alt="fridge" className="menu-icon" />
-                        <NavLink to="/cabinetpage">Cabinet</NavLink>
+                        <NavLink to="/cabinet">Cabinet</NavLink>
                     </li>
                     <li className="menu-item">
                         <img src="storage/Images/family.png" alt="family" className="menu-icon" />
@@ -52,7 +52,7 @@ const Sidebar = () => {
                     </li>
                     <li className="menu-item">
                         <img src="storage/Images/setting.png" alt="setting" className="menu-icon" />
-                        Settings
+                       <NavLink to="/settings">Settings</NavLink>
                     </li>
                 </ul>
                 <div className="light-mode">
