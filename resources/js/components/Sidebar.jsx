@@ -15,7 +15,7 @@ const Sidebar = () => {
                     <h2 className="companyName">Eatify</h2>
                     <button className="toggle-button" onClick={toggleSidebar}>
                         <img 
-                        src="/Images/back-arrow.png" 
+                        src="storage/Images/back-arrow.png" 
                         alt={isOpen ? "Close Sidebar" : "Open Sidebar"} 
                         className="toggle-icon"
                         />
@@ -23,35 +23,35 @@ const Sidebar = () => {
                 </div>
                 <ul className="menu">
                     <li className="menu-item">
-                        <img src="/Images/home.png" alt="Home" className="menu-icon" />
+                        <img src="storage/Images/home.png" alt="Home" className="menu-icon" />
                         <NavLink to="/">Home Page</NavLink>
                     </li>
                     <li className="menu-item">
-                        <img src="/Images/search.png" alt="search" className="menu-icon" />
-                        <NavLink to="/mealfinder"> Meal Finder</NavLink>
+                        <img src="storage/Images/search.png" alt="search" className="menu-icon" />
+                        <NavLink to="/mealfinder">Meal Finder</NavLink>
                     </li>
                     <li className="menu-item">
-                        <img src="/Images/cutlery.png" alt="cutlery" className="menu-icon" />
+                        <img src="storage/Images/cutlery.png" alt="cutlery" className="menu-icon" />
                         Menu
                     </li>
                     <li className="menu-item">
-                        <img src="/Images/notes.png" alt="notes" className="menu-icon" />
+                        <img src="storage/Images/notes.png" alt="notes" className="menu-icon" />
                         Planner
                     </li>
                     <li className="menu-item">
-                        <img src="/Images/fridge.png" alt="fridge" className="menu-icon" />
-                        Cabinet
+                        <img src="storage/Images/fridge.png" alt="fridge" className="menu-icon" />
+                        <NavLink to="/cabinetpage">Cabinet</NavLink>
                     </li>
                     <li className="menu-item">
-                        <img src="/Images/family.png" alt="family" className="menu-icon" />
+                        <img src="storage/Images/family.png" alt="family" className="menu-icon" />
                         Family Share
                     </li>
                     <li className="menu-item">
-                        <img src="/Images/shopping.png" alt="shopping" className="menu-icon" />
+                        <img src="storage/Images/shopping.png" alt="shopping" className="menu-icon" />
                         Shopping
                     </li>
                     <li className="menu-item">
-                        <img src="/Images/setting.png" alt="setting" className="menu-icon" />
+                        <img src="storage/Images/setting.png" alt="setting" className="menu-icon" />
                         Settings
                     </li>
                 </ul>
@@ -65,7 +65,7 @@ const Sidebar = () => {
             {!isOpen && (
                 <button className="reopen-button" onClick={toggleSidebar}>
                 <img 
-                    src="/Images/forward-arrow.png" 
+                    src="storage/Images/forward-arrow.png" 
                     alt="Reopen Sidebar" 
                     className="toggle-icon"
                 />
