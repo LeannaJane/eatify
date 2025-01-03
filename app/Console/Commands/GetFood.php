@@ -6,6 +6,8 @@ use App\Models\Meal;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Storage;
+use Ramsey\Uuid\Uuid;
 
 class GetFood extends Command
 {
@@ -53,6 +55,12 @@ class GetFood extends Command
             $data = json_decode($body, true);
 
             $serving = $data['food']['servings']['serving'][0];
+            $image_url = $data['food']['food_images']['food_image'][0]['image_url'];
+
+            $image_uuid = Uuid::uuid4();
+
+            $image = file_get_contents($image_url);
+            file_put_contents(storage_path() . '/app/public/Meals/'. $image_uuid. '.png', $image);
 
             Meal::create([
                 'food_api_id' => $data['food']['food_id'],
@@ -72,7 +80,8 @@ class GetFood extends Command
                 'vitamin_a' => $serving['vitamin_a'],
                 'vitamin_c' => $serving['vitamin_c'],
                 'calcium' => $serving['calcium'],
-                'iron' => $serving['iron']
+                'iron' => $serving['iron'],
+                'image_id' => $image_uuid
             ]);
         }
     }

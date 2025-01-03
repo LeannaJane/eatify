@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('food_api_id');
             $table->string('name');
+            $table->string('image_id');
             $table->double('calories')->default(0);
             $table->double('carbohydrate')->default(0);
             $table->double('protein')->default(0);
