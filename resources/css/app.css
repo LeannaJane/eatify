@@ -1,6 +1,7 @@
 @import './Sidebar.css';
 @import './Pages.css';
 @import './cabinets.css';
+@import './settings.css';
 
 body, html, #app {
     margin: 0;
