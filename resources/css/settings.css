@@ -34,6 +34,10 @@
     margin: 0;
 }
 
+.profile-list li strong {
+    margin-right: 10px; 
+} 
+
 .profile-list li {
     margin-bottom: 20px;
     font-size: 14px;
