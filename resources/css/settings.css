@@ -28,6 +28,13 @@
     color: #666;
 }
 
+.appPreferences-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+
 .profile-list {
     list-style: none;
     padding: 0;

@@ -2,6 +2,7 @@ import React from 'react';
 import Sidebar from '../components/Sidebar';
 import SettingsBox from '../components/Settingsbox';
 import ProfileSettings from '../components/ProfileSettings';
+import AppPreferences from '../components/AppPreferences';
 
 const SettingsPage = () => {
 
@@ -21,6 +22,7 @@ const SettingsPage = () => {
                     <SettingsBox
                         title="App Preferences"
                         description="Customise app appearance, notifications, and other preferences."
+                        content={<AppPreferences />}
                     />
                     <SettingsBox
                         title="Privacy"
