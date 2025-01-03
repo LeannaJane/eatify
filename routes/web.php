@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CabinetController;
 use Illuminate\Support\Facades\Route;
 
 // Homepage
@@ -9,13 +10,10 @@ Route::get('/', function () {
 
 // API endpoints
 Route::prefix('api')->group(function () {
-    Route::get('/users', function () {
-        return response()->json(['users' => ['John', 'Jane']]);
-    });
+    Route::post('/cabinet/create', [CabinetController::class, 'create']);
 
-    Route::get('/posts', function () {
-        return response()->json(['posts' => ['Post 1', 'Post 2']]);
-    });
+    Route::get('/cabinets', [CabinetController::class, 'getAll']);
+    Route::post('/cabinets/delete', [CabinetController::class, 'delete']);
 });
 
 // Catch all for react

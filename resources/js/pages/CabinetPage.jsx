@@ -1,22 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Sidebar from '../components/Sidebar';
-import Cabinet from '../components/Cabinet'; 
+import Cabinet from '../components/Cabinet';
 
 const CabinetPage = () => {
   const [cabinets, setCabinets] = useState([]);
   const [selectedCabinets, setSelectedCabinets] = useState([]);
   const [isDeleteMode, setIsDeleteMode] = useState(false);
 
-  const addCabinet = () => {
-    setCabinets([...cabinets, {}]);
+    useEffect(() => {
+        axios.get('/api/cabinets').then(response => {
+            setCabinets(response.data);
+        });
+    }, []);
+
+  const addCabinet = async () => {
+    let cabinet = await axios.post('/api/cabinet/create');
+    setCabinets([...cabinets, cabinet.data]);
   };
 
   const deleteCabinet = () => {
     if (selectedCabinets.length > 0) {
-      const newCabinets = cabinets.filter((_, i) => !selectedCabinets.includes(i));
-      setCabinets(newCabinets);
-      setSelectedCabinets([]);
-      setIsDeleteMode(false);
+        axios.post('/api/cabinets/delete', {'ids': selectedCabinets}).then(() => {
+            const newCabinets = cabinets.filter(cabinet => !selectedCabinets.includes(cabinet.id));
+            setCabinets(newCabinets);
+            setSelectedCabinets([]);
+            setIsDeleteMode(false);
+        });
     } else {
       if (isDeleteMode) {
         setIsDeleteMode(false);
@@ -26,11 +35,11 @@ const CabinetPage = () => {
     }
   };
 
-  const toggleCabinetSelection = (index) => {
-    if (selectedCabinets.includes(index)) {
-      setSelectedCabinets(selectedCabinets.filter(i => i !== index));
+  const toggleCabinetSelection = (cabinet_id) => {
+    if (selectedCabinets.includes(cabinet_id)) {
+      setSelectedCabinets(selectedCabinets.filter(i => i !== cabinet_id));
     } else {
-      setSelectedCabinets([...selectedCabinets, index]);
+      setSelectedCabinets([...selectedCabinets, cabinet_id]);
     }
   };
 
@@ -42,19 +51,18 @@ const CabinetPage = () => {
         <button className="add-cabinet-button" onClick={addCabinet}>
           Add
         </button>
-        <button 
+        <button
           className="delete-cabinet-button"
           onClick={deleteCabinet}
         >
           Delete
         </button>
         <div className="cabinet-container">
-          {cabinets.map((_, index) => (
-            <div key={index} className="cabinet-wrapper">
-              <Cabinet 
-                index={index} 
-                onSelect={() => toggleCabinetSelection(index)} 
-                isSelected={selectedCabinets.includes(index)}
+          {cabinets.map(cabinet => (
+            <div key={cabinet.id} className="cabinet-wrapper">
+              <Cabinet
+                onSelect={() => toggleCabinetSelection(cabinet.id)}
+                isSelected={selectedCabinets.includes(cabinet.id)}
                 isDeleteMode={isDeleteMode}
               />
             </div>

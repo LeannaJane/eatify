@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Cabinet = ({ index, onSelect, isSelected, isDeleteMode }) => {
+const Cabinet = ({ onSelect, isSelected, isDeleteMode }) => {
     return (
         <div
         className={`cabinet ${isSelected ? 'selected' : ''}`}
