@@ -16,4 +16,26 @@ a, a:visited {
 
 .content {
     width: 100%;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    scrollbar-gutter: stable;
+}
+
+::-webkit-scrollbar-track {
+    background: rgb(169, 223, 169);
+    border-radius: 100px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(123, 161, 123);
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 100px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
