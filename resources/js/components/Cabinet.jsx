@@ -1,13 +1,25 @@
-import React, {useState } from 'react';
+import React, { useState } from 'react';
 
 const Cabinet = ({ index, onSelect, isSelected, isDeleteMode }) => {
     return (
-        <div 
-        className={`cabinet ${isSelected ? 'selected' : ''}`} 
+        <div
+        className={`cabinet ${isSelected ? 'selected' : ''}`}
         onClick={onSelect}
         >
             <div className="cabinet-content">
-                <p>Cabinet {index + 1}</p>
+                <div className="title">Fridge</div>
+                <ul className='cabinet-list'>
+                    <li>Milk</li>
+                    <li>Grated Cheese</li>
+                    <li>Smoked Ham</li>
+                    <li>Yogurt</li>
+                    <li>Yogurt</li>
+                    <li>Yogurt</li>
+                    <li>Yogurt</li>
+                    <li>Yogurt</li>
+                    <li>Yogurt</li>
+                    <li>Yogurt</li>
+                </ul>
             </div>
 
             {isDeleteMode && (
