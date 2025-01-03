@@ -1,5 +1,6 @@
 @import './Sidebar.css';
-
+@import './Pages.css';
+@import './cabinets.css';
 
 body, html, #app {
     margin: 0;
@@ -11,4 +12,8 @@ body, html, #app {
 a, a:visited {
     text-decoration: none;
     color: inherit;
+}
+
+.content {
+    width: 100%;
 }
