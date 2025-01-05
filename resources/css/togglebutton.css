@@ -1,0 +1,141 @@
+.theme-toggle-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-left: 0.1rem;
+}
+
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.theme-toggle input[type="checkbox"] {
+    width: 40px;
+    height: 20px;
+    appearance: none;
+    background-color: #ccc;
+    border-radius: 10px;
+    position: relative;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.theme-toggle input[type="checkbox"]:checked {
+    background-color: #000000;
+}
+
+.theme-toggle input[type="checkbox"]::after {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background-color: white;
+    border-radius: 50%;
+    top: 1px;
+    left: 1px;
+    transition: transform 0.3s;
+}
+
+.theme-toggle input[type="checkbox"]:checked::after {
+    transform: translateX(20px);
+}
+
+
+.Notifications-toggle input[type="checkbox"] {
+    width: 40px;
+    height: 20px;
+    appearance: none;
+    background-color: #ccc;
+    border-radius: 10px;
+    position: relative;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.Notifications-toggle input[type="checkbox"]:checked {
+    background-color: #000000;
+}
+
+.Notifications-toggle-container{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-left: 0.1rem;
+}
+
+.Notifications-toggle{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.Notifications-toggle input[type="checkbox"]::after {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background-color: white;
+    border-radius: 50%;
+    top: 1px;
+    left: 1px;
+    transition: transform 0.3s;
+}
+
+
+.Notifications-toggle input[type="checkbox"]:checked::after {
+    transform: translateX(20px);
+}
+
+
+
+.activityTracking-toggle input[type="checkbox"] {
+    width: 40px;
+    height: 20px;
+    appearance: none;
+    background-color: #ccc;
+    border-radius: 10px;
+    position: relative;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.activityTracking-toggle input[type="checkbox"]:checked {
+    background-color: #000000;
+}
+
+.activityTracking-toggle-container{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-left: 0.1rem;
+}
+
+.activityTracking-toggle{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.activityTracking-toggle input[type="checkbox"]::after {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background-color: white;
+    border-radius: 50%;
+    top: 1px;
+    left: 1px;
+    transition: transform 0.3s;
+}
+
+
+.activityTracking-toggle input[type="checkbox"]:checked::after {
+    transform: translateX(20px);
+}
+
+

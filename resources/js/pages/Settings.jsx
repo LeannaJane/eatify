@@ -3,11 +3,10 @@ import Sidebar from '../components/Sidebar';
 import SettingsBox from '../components/Settingsbox';
 import ProfileSettings from '../components/ProfileSettings';
 import AppPreferences from '../components/AppPreferences';
+import Privacy from '../components/Privacy';
+import AccountManagement from '../components/AccountManagement';
 
 const SettingsPage = () => {
-
-
-
 
     return (
         <div style={{ display: 'flex' }}>
@@ -27,10 +26,12 @@ const SettingsPage = () => {
                     <SettingsBox
                         title="Privacy"
                         description="Control your privacy settings, including data sharing and visibility options."
+                        content={<Privacy />}
                     />
                     <SettingsBox
                         title="Account & Family Management"
                         description="Manage account settings, add family members, and oversee family permissions."
+                        content={<AccountManagement/>}
                     />
                 </div>
             </div>

@@ -28,12 +28,39 @@
     color: #666;
 }
 
+.activityTracking-list{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.activityTracking-list strong {
+    margin-right: 10px;
+}
+
+.activityTracking-list li {
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #333;
+}
+
+
 .appPreferences-list {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
+
+.appPreferences-list strong {
+    margin-right: 10px;
+}
+
+.appPreferences-list li {
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #333;
+}
 
 .profile-list {
     list-style: none;
@@ -83,4 +110,92 @@
 
 .edit-button:hover .edit-icon {
     transform: scale(1.1); 
+}
+
+
+.privacy-policy-container {
+    display: flex;
+    align-items: center;
+    gap: 0.rem;
+}
+
+.privacy-policy-link {
+    display: inline-flex;
+    align-items: center;
+}
+
+.privacy-policy-icon {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+
+.AccountManagement-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.AccountManagement-list li strong {
+    margin-right: 10px; 
+} 
+
+.AccountManagement-list li {
+    margin-bottom: 20px;
+    font-size: 12px;
+    color: #333;
+}
+
+.AccountManagement-list strong {
+    font-weight: bold;
+}
+
+.AccountManagement-settings {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;  
+    justify-content: center;
+    text-align: center;     
+}
+
+
+.delete-family-button{
+    background-color: red;
+    border-radius: 20px;
+    align-items: center;
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    
+}
+
+
+.delete-family-button:hover{
+    background-color: rgb(221, 138, 138);
+}
+
+.delete-button{
+    background-color: red;
+    border-radius: 20px;
+    align-items: center;
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.delete-button:hover{
+    background-color: rgb(221, 138, 138);
 }

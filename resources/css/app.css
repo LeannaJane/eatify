@@ -1,6 +1,7 @@
 @import './Sidebar.css';
 @import './cabinets.css';
 @import './settings.css';
+@import './togglebutton.css';
 
 body, html, #app {
     margin: 0;

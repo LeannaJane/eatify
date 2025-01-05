@@ -9,6 +9,7 @@ const CabinetPage = () => {
 
     useEffect(() => {
         axios.get('/api/cabinets').then(response => {
+          	console.log(response.data);
             setCabinets(response.data);
         });
     }, []);
