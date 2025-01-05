@@ -8,19 +8,19 @@ const CabinetPage = () => {
   const [isDeleteMode, setIsDeleteMode] = useState(false);
 
     useEffect(() => {
-        axios.get('/api/cabinets').then(response => {
+        axios.get('/cabinets').then(response => {
             setCabinets(response.data);
         });
     }, []);
 
   const addCabinet = async () => {
-    let cabinet = await axios.post('/api/cabinet/create');
+    let cabinet = await axios.post('/cabinet/create');
     setCabinets([...cabinets, cabinet.data]);
   };
 
   const deleteCabinet = () => {
     if (selectedCabinets.length > 0) {
-        axios.post('/api/cabinets/delete', {'ids': selectedCabinets}).then(() => {
+        axios.post('/cabinets/delete', {'ids': selectedCabinets}).then(() => {
             const newCabinets = cabinets.filter(cabinet => !selectedCabinets.includes(cabinet.id));
             setCabinets(newCabinets);
             setSelectedCabinets([]);
