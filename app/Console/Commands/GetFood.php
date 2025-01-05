@@ -26,7 +26,8 @@ class GetFood extends Command
     protected $description = 'Get all menus and store in database';
 
     protected $cache_file = 'token_cache.json';
-    protected $food_ids = [3436];
+    // insert new food ids here
+    protected $food_ids = [3436, 33797];
 
     /**
      * Execute the console command.
@@ -57,13 +58,14 @@ class GetFood extends Command
             $serving = $data['food']['servings']['serving'][0];
             $image_url = $data['food']['food_images']['food_image'][0]['image_url'];
 
-            $image_uuid = Uuid::uuid4();
+            $image_uuid = Uuid::uuid5(Uuid::NAMESPACE_X500, $data['food']['food_id']);
 
             $image = file_get_contents($image_url);
             file_put_contents(storage_path() . '/app/public/Meals/'. $image_uuid. '.png', $image);
 
-            Meal::create([
-                'food_api_id' => $data['food']['food_id'],
+            Meal::updateOrCreate([
+                'food_api_id' => $data['food']['food_id']
+            ], [
                 'name' => $data['food']['food_name'],
                 'calories' => $serving['calories'],
                 'carbohydrate' => $serving['carbohydrate'],

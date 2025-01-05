@@ -3,6 +3,7 @@
 use App\Http\Controllers\CabinetController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\MealController;
 use Illuminate\Support\Facades\Route;
 
 // Homepage
@@ -16,6 +17,8 @@ Route::prefix('api')->group(function () {
     Route::post('/auth/logout', [LoginController::class, 'logout'])->middleware('auth');
     Route::post('/auth/login', [LoginController::class, 'login']);
     Route::post('/auth/register', [RegisterController::class, 'register']);
+    Route::get('/meals', [MealController::class, 'getMeals']);
+    Route::get('/meal/{id}', [MealController::class, 'getMeal']);
 
     Route::middleware('auth')->group(function () {
         Route::post('/cabinet/create', [CabinetController::class, 'create']);
