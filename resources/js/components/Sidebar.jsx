@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
+import { useAuth } from '../AuthContext';
 
 const Sidebar = () => {
     const [isOpen, setIsOpen] = useState(true);
+    const { isLoggedIn, logout } = useAuth();
 
     const toggleSidebar = () => {
         setIsOpen(!isOpen);
@@ -14,9 +16,9 @@ const Sidebar = () => {
                 <div className="sidebar-header">
                     <h2 className="companyName">Eatify</h2>
                     <button className="toggle-button" onClick={toggleSidebar}>
-                        <img 
-                        src="storage/Images/back-arrow.png" 
-                        alt={isOpen ? "Close Sidebar" : "Open Sidebar"} 
+                        <img
+                        src="storage/Images/back-arrow.png"
+                        alt={isOpen ? "Close Sidebar" : "Open Sidebar"}
                         className="toggle-icon"
                         />
                     </button>
@@ -58,15 +60,22 @@ const Sidebar = () => {
                 <div className="light-mode">
                     <span>Light Mode</span>
                 </div>
-                <button className="logout-button">Logout</button>
+                {isLoggedIn ? (
+                    <button className="logout-button" onClick={logout}>Logout</button>
+                ) : (
+                    <>
+                        <Link to="/login"><button className="logout-button" style={{'marginBottom': 0}}>Login</button></Link>
+                        <Link to="/register"><button className="logout-button">Register</button></Link>
+                    </>
+                )}
             </div>
 
 
             {!isOpen && (
                 <button className="reopen-button" onClick={toggleSidebar}>
-                <img 
-                    src="storage/Images/forward-arrow.png" 
-                    alt="Reopen Sidebar" 
+                <img
+                    src="storage/Images/forward-arrow.png"
+                    alt="Reopen Sidebar"
                     className="toggle-icon"
                 />
                 </button>

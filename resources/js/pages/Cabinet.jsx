@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Sidebar from '../components/Sidebar';
 import Cabinet from '../components/Cabinet';
+import { useAuth } from '../AuthContext';
 
 const CabinetPage = () => {
   const [cabinets, setCabinets] = useState([]);
@@ -20,7 +21,7 @@ const CabinetPage = () => {
 
   const deleteCabinet = () => {
     if (selectedCabinets.length > 0) {
-        axios.post('/cabinets/delete', {'ids': selectedCabinets}).then(() => {
+        daxios.post('/cabinets/delete', {'ids': selectedCabinets}).then(() => {
             const newCabinets = cabinets.filter(cabinet => !selectedCabinets.includes(cabinet.id));
             setCabinets(newCabinets);
             setSelectedCabinets([]);

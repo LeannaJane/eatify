@@ -13,14 +13,15 @@ Route::get('/', function () {
 // API endpoints
 Route::prefix('api')->group(function () {
     Route::get('/auth/check', [LoginController::class, 'check']);
-    Route::post('/auth/logout', [LoginController::class, 'logout']);
+    Route::post('/auth/logout', [LoginController::class, 'logout'])->middleware('auth');
     Route::post('/auth/login', [LoginController::class, 'login']);
     Route::post('/auth/register', [RegisterController::class, 'register']);
 
-    Route::post('/cabinet/create', [CabinetController::class, 'create']);
-
-    Route::get('/cabinets', [CabinetController::class, 'getAll']);
-    Route::post('/cabinets/delete', [CabinetController::class, 'delete']);
+    Route::middleware('auth')->group(function () {
+        Route::post('/cabinet/create', [CabinetController::class, 'create']);
+        Route::get('/cabinets', [CabinetController::class, 'getAll']);
+        Route::post('/cabinets/delete', [CabinetController::class, 'delete']);
+    });
 });
 
 // Catch all for react
