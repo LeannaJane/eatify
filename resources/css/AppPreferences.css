@@ -38,12 +38,10 @@
 
 .preview-text {
     margin-top: 20px;
-    font-size: 18px;
 }
+
 
 .single-day-regular {
-    font-family: "Single Day", serif;
-    font-weight: 400;
-    font-style: normal;
+    font-size: 15px  !important;
+    font-family: "Single Day", serif !important;
 }
-

@@ -57,9 +57,6 @@ const Sidebar = () => {
                        <NavLink to="/settings">Settings</NavLink>
                     </li>
                 </ul>
-                <div className="light-mode">
-                    <span>Light Mode</span>
-                </div>
                 {isLoggedIn ? (
                     <button className="logout-button" onClick={logout}>Logout</button>
                 ) : (

@@ -4,6 +4,7 @@
     gap: 20px;
     padding: 20px;
     min-width: 600px;
+
 }
 
 .settings-box {
@@ -13,6 +14,7 @@
     border-radius: 8px;
     padding: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    min-height: 300px;
 
 }
 
@@ -69,8 +71,8 @@
 }
 
 .profile-list li strong {
-    margin-right: 10px; 
-} 
+    margin-right: 10px;
+}
 
 .profile-list li {
     margin-bottom: 20px;
@@ -96,10 +98,10 @@
     background: none;
     border: none;
     cursor: pointer;
-    display: inline-flex; 
+    display: inline-flex;
     align-items: center;
-    position: absolute; 
-    right: 10px;   
+    position: absolute;
+    right: 10px;
 }
 
 .edit-icon {
@@ -109,7 +111,7 @@
 }
 
 .edit-button:hover .edit-icon {
-    transform: scale(1.1); 
+    transform: scale(1.1);
 }
 
 
@@ -138,8 +140,8 @@
 }
 
 .AccountManagement-list li strong {
-    margin-right: 10px; 
-} 
+    margin-right: 10px;
+}
 
 .AccountManagement-list li {
     margin-bottom: 20px;
@@ -153,10 +155,10 @@
 
 .AccountManagement-settings {
     display: flex;
-    flex-direction: column; 
-    align-items: center;  
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    text-align: center;     
+    text-align: center;
 }
 
 
@@ -173,7 +175,7 @@
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    
+
 }
 
 

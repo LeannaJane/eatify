@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import '../../css/AppPreferences.css'; // Ensure the correct import path
 
-const AppPreferences = ({ setSelectedFontStyle }) => {
+const AppPreferences = ({ selectedFontStyle, setSelectedFontStyle }) => {
     const [isDarkMode, setIsDarkMode] = useState(() => {
         return JSON.parse(localStorage.getItem('isDarkMode')) || false;
     });
@@ -42,15 +43,15 @@ const AppPreferences = ({ setSelectedFontStyle }) => {
         <div
             className={`appPreferences-settings ${
                 isDarkMode ? "dark-theme" : "light-theme"
-            }`}
+            } ${selectedFontStyle}`} // Apply the selected font style class here
         >
             <ul className="appPreferences-list">
                 <li>
-                    <strong>Themes:</strong>
+                    <strong className={selectedFontStyle}>Themes:</strong> {/* Apply the class here */}
                 </li>
                 <li>
                     <div className="theme-toggle-container">
-                        <span className="theme-label">Light</span>
+                        <span className={`theme-label ${selectedFontStyle}`}>Light</span> {/* Apply the class here */}
                         <label className="theme-toggle">
                             <input
                                 type="checkbox"
@@ -59,15 +60,15 @@ const AppPreferences = ({ setSelectedFontStyle }) => {
                             />
                             <span className="toggle-slider" />
                         </label>
-                        <span className="theme-label">Dark</span>
+                        <span className={`theme-label ${selectedFontStyle}`}>Dark</span> {/* Apply the class here */}
                     </div>
                 </li>
                 <li>
                     <div className="font-style-container">
-                        <strong>Font Style:</strong>
+                        <strong className={selectedFontStyle}>Font Style:</strong> {/* Apply the class here */}
                         <select
                             onChange={handleFontStyleChange}
-                            className="font-style-dropdown"
+                            className={`font-style-dropdown ${selectedFontStyle}`} // Apply the class here
                         >
                             <option value="" disabled>
                                 Select Font Style
@@ -81,11 +82,11 @@ const AppPreferences = ({ setSelectedFontStyle }) => {
                     </div>
                 </li>
                 <li>
-                    <strong>Notifications:</strong>
+                    <strong className={selectedFontStyle}>Notifications:</strong> {/* Apply the class here */}
                 </li>
                 <li>
                     <div className="Notifications-toggle-container">
-                        <span className="Notifications-label">Off</span>
+                        <span className={`Notifications-label ${selectedFontStyle}`}>Off</span> {/* Apply the class here */}
                         <label className="Notifications-toggle">
                             <input
                                 type="checkbox"
@@ -94,7 +95,7 @@ const AppPreferences = ({ setSelectedFontStyle }) => {
                             />
                             <span className="Notifications-toggle-slider" />
                         </label>
-                        <span className="Notifications-label">On</span>
+                        <span className={`Notifications-label ${selectedFontStyle}`}>On</span> {/* Apply the class here */}
                     </div>
                 </li>
             </ul>
