@@ -2,6 +2,7 @@
 @import './cabinets.css';
 @import './settings.css';
 @import './togglebutton.css';
+@import './AppPreferences.css';
 
 body, html, #app {
     margin: 0;

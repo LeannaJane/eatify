@@ -9,7 +9,7 @@ const ProfileSettings = () => {
     const [password, setPassword] = useState("********");
     const [profilePicture, setProfilePicture] = useState("");
 
-    const [editableField, setEditableField] = useState(null); 
+    const [editableField, setEditableField] = useState(null);
 
     const handleProfilePictureChange = (e) => {
         const file = e.target.files[0];
@@ -20,12 +20,12 @@ const ProfileSettings = () => {
         }
     };
 
-   
+
     const handleEditClick = (field) => {
         if (editableField === field) {
-            setEditableField(null); 
+            setEditableField(null);
         } else {
-            setEditableField(field); 
+            setEditableField(field);
         }
     };
 
@@ -44,8 +44,8 @@ const ProfileSettings = () => {
                     ) : (
                         <span>{name}</span>
                     )}
-                    <button 
-                        onClick={() => handleEditClick("name")} 
+                    <button
+                        onClick={() => handleEditClick("name")}
                         className="edit-button"
                     >
                         <img src={editIconPath} alt="Edit" className="edit-icon" />
@@ -63,8 +63,8 @@ const ProfileSettings = () => {
                     ) : (
                         <span>{email}</span>
                     )}
-                    <button 
-                        onClick={() => handleEditClick("email")} 
+                    <button
+                        onClick={() => handleEditClick("email")}
                         className="edit-button"
                     >
                         <img src={editIconPath} alt="Edit" className="edit-icon" />
@@ -82,8 +82,8 @@ const ProfileSettings = () => {
                     ) : (
                         <span>{password}</span>
                     )}
-                    <button 
-                        onClick={() => handleEditClick("password")} 
+                    <button
+                        onClick={() => handleEditClick("password")}
                         className="edit-button"
                     >
                         <img src={editIconPath} alt="Edit" className="edit-icon" />
@@ -108,8 +108,8 @@ const ProfileSettings = () => {
                             <span>No Profile Picture</span>
                         )
                     )}
-                    <button 
-                        onClick={() => handleEditClick("profilePic")} 
+                    <button
+                        onClick={() => handleEditClick("profilePic")}
                         className="edit-button"
                     >
                         <img src={editIconPath} alt="Edit" className="edit-icon" />

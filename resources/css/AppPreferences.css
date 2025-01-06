@@ -1,0 +1,49 @@
+/* Importing the Single Day font */
+@import url('https://fonts.googleapis.com/css2?family=Single+Day&display=swap');
+
+.font-style-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.font-style-dropdown {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #333;
+    margin: 0;
+    flex-shrink: 0;
+}
+
+
+
+.font-arial {
+    font-family: Arial, sans-serif;
+}
+
+.font-times-new-roman {
+    font-family: "Times New Roman", serif;
+}
+
+.font-verdana {
+    font-family: Verdana, sans-serif;
+}
+
+.font-courier-new {
+    font-family: "Courier New", monospace;
+}
+
+.preview-text {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+.single-day-regular {
+    font-family: "Single Day", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+

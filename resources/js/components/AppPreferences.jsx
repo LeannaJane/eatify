@@ -1,29 +1,49 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-const AppPreferences = () => {
-    // State for theme
-    const [isDarkMode, setIsDarkMode] = useState(false);
+const AppPreferences = ({ setSelectedFontStyle }) => {
+    const [isDarkMode, setIsDarkMode] = useState(() => {
+        return JSON.parse(localStorage.getItem('isDarkMode')) || false;
+    });
 
-    // State for notifications
-    const [NotificationsOn, setNotificationsOn] = useState(false);
+    const [NotificationsOn, setNotificationsOn] = useState(() => {
+        return JSON.parse(localStorage.getItem('NotificationsOn')) || false;
+    });
 
-    // State for font style
-    const [selectedFontStyle, setSelectedFontStyle] = useState('');
+    useEffect(() => {
+        const savedFontStyle = localStorage.getItem('selectedFontStyle');
+        if (savedFontStyle) {
+            setSelectedFontStyle(savedFontStyle);
+        }
+    }, [setSelectedFontStyle]);
 
     const handleToggletheme = () => {
-        setIsDarkMode((prevMode) => !prevMode);
+        setIsDarkMode((prevMode) => {
+            const newMode = !prevMode;
+            localStorage.setItem('isDarkMode', JSON.stringify(newMode));
+            return newMode;
+        });
     };
 
     const handleToggleNotifications = () => {
-        setNotificationsOn((prevNotifications) => !prevNotifications);
+        setNotificationsOn((prevNotifications) => {
+            const newNotifications = !prevNotifications;
+            localStorage.setItem('NotificationsOn', JSON.stringify(newNotifications));
+            return newNotifications;
+        });
     };
 
     const handleFontStyleChange = (event) => {
-        setSelectedFontStyle(event.target.value);
+        const newFontStyle = event.target.value;
+        setSelectedFontStyle(newFontStyle);
+        localStorage.setItem('selectedFontStyle', newFontStyle);
     };
 
     return (
-        <div className="appPreferences-settings">
+        <div
+            className={`appPreferences-settings ${
+                isDarkMode ? "dark-theme" : "light-theme"
+            }`}
+        >
             <ul className="appPreferences-list">
                 <li>
                     <strong>Themes:</strong>
@@ -46,17 +66,17 @@ const AppPreferences = () => {
                     <div className="font-style-container">
                         <strong>Font Style:</strong>
                         <select
-                            value={selectedFontStyle}
                             onChange={handleFontStyleChange}
                             className="font-style-dropdown"
                         >
                             <option value="" disabled>
                                 Select Font Style
                             </option>
-                            <option value="Arial">Arial</option>
-                            <option value="Times New Roman">Times New Roman</option>
-                            <option value="Verdana">Verdana</option>
-                            <option value="Courier New">Courier New</option>
+                            <option value="font-arial">Arial</option>
+                            <option value="font-times-new-roman">Times New Roman</option>
+                            <option value="font-verdana">Verdana</option>
+                            <option value="font-courier-new">Courier New</option>
+                            <option value="single-day-regular">Single</option>
                         </select>
                     </div>
                 </li>

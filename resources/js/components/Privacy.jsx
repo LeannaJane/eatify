@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 const Privacy = () => {
     const [isActivity, setActivity] = useState(false);
-    
+
     const handleActivityTracking = () => {
         setActivity((prevMode) => !prevMode);
     };
@@ -31,9 +31,9 @@ const Privacy = () => {
                 <li className="privacy-policy-container">
                     <strong>View our Privacy Policy</strong>
                     <a href="#" className="privacy-policy-link">
-                        <img 
-                            src="storage/Images//link.png" 
-                            alt="Privacy Policy Link Icon" 
+                        <img
+                            src="storage/Images//link.png"
+                            alt="Privacy Policy Link Icon"
                             className="privacy-policy-icon"
                         />
                     </a>
