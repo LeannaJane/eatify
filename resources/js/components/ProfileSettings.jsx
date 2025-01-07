@@ -1,14 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useAuth } from '../AuthContext';
 
-const ProfileSettings = ({ selectedFontStyle }) => {
+const ProfileSettings = () => {
     const editIconPath = "storage/Images/edit.png";
 
-    const [name, setName] = useState("Lea Jane");
-    const [email, setEmail] = useState("Leanna.ux@outlook.com");
+    const { user } = useAuth();
+
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("********");
     const [profilePicture, setProfilePicture] = useState("");
 
     const [editableField, setEditableField] = useState(null);
+
+    useEffect(() => {
+        if (user) {
+            setName(user.name);
+            setEmail(user.email);
+        }
+    }, [user]);
 
     const handleProfilePictureChange = (e) => {
         const file = e.target.files[0];
@@ -28,91 +38,89 @@ const ProfileSettings = ({ selectedFontStyle }) => {
     };
 
     return (
-        <div className={`profile-settings ${selectedFontStyle}`}>
+        <div className={`profile-settings`}>
             <ul className="profile-list">
                 <li>
-                    <strong className={selectedFontStyle}>Name:</strong>
+                    <strong>Name:</strong>
                     {editableField === "name" ? (
                         <input
                             type="text"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
                             placeholder="Enter your name"
-                            className={selectedFontStyle}
                         />
                     ) : (
-                        <span className={selectedFontStyle}>{name}</span>
+                        <span>{name}</span>
                     )}
                     <button
                         onClick={() => handleEditClick("name")}
-                        className={`edit-button ${selectedFontStyle}`}
+                        className={`edit-button`}
                     >
                         <img src={editIconPath} alt="Edit" className="edit-icon" />
                     </button>
                 </li>
                 <li>
-                    <strong className={selectedFontStyle}>Email:</strong>
+                    <strong>Email:</strong>
                     {editableField === "email" ? (
                         <input
                             type="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             placeholder="Enter your email"
-                            className={selectedFontStyle}
                         />
                     ) : (
-                        <span className={selectedFontStyle}>{email}</span>
+                        <span>{email}</span>
                     )}
                     <button
                         onClick={() => handleEditClick("email")}
-                        className={`edit-button ${selectedFontStyle}`}
+                        className={`edit-button`}
                     >
                         <img src={editIconPath} alt="Edit" className="edit-icon" />
                     </button>
                 </li>
                 <li>
-                    <strong className={selectedFontStyle}>Password:</strong>
+                    <strong >Password:</strong>
                     {editableField === "password" ? (
                         <input
                             type="password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             placeholder="Enter a new password"
-                            className={selectedFontStyle}
+
                         />
                     ) : (
-                        <span className={selectedFontStyle}>{password}</span>
+                        <span >{password}</span>
                     )}
                     <button
                         onClick={() => handleEditClick("password")}
-                        className={`edit-button ${selectedFontStyle}`}
+                        className={`edit-button`}
                     >
                         <img src={editIconPath} alt="Edit" className="edit-icon" />
                     </button>
                 </li>
                 <li>
-                    <strong className={selectedFontStyle}>Profile Picture:</strong>
+                    <strong >Profile Picture:</strong>
                     {editableField === "profilePic" ? (
                         <input
                             type="file"
                             accept="image/*"
                             onChange={handleProfilePictureChange}
-                            className={selectedFontStyle}
+
                         />
                     ) : (
                         profilePicture ? (
                             <img
                                 src={profilePicture}
                                 alt="Profile"
-                                className={`profile-img-preview ${selectedFontStyle}`}
+                                className={`profile-img-preview`}
                             />
                         ) : (
-                            <span className={selectedFontStyle}>No Profile Picture</span>
+                            <span >No Profile Picture</span>
                         )
                     )}
                     <button
                         onClick={() => handleEditClick("profilePic")}
-                        className={`edit-button ${selectedFontStyle}`}
+                        className={`edit-button`}
                     >
                         <img src={editIconPath} alt="Edit" className="edit-icon" />
                     </button>

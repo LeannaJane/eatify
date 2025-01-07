@@ -57,13 +57,8 @@ const Sidebar = () => {
                        <NavLink to="/settings">Settings</NavLink>
                     </li>
                 </ul>
-                {isLoggedIn ? (
+                {isLoggedIn && (
                     <button className="logout-button" onClick={logout}>Logout</button>
-                ) : (
-                    <>
-                        <Link to="/login"><button className="logout-button" style={{'marginBottom': 0}}>Login</button></Link>
-                        <Link to="/register"><button className="logout-button">Register</button></Link>
-                    </>
                 )}
             </div>
 
