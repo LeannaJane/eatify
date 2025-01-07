@@ -21,19 +21,35 @@
 
 
 .font-arial {
-    font-family: Arial, sans-serif;
+    font-family: Arial, sans-serif !important;
+}
+
+.font-arial button {
+    font-family: Arial, sans-serif !important;
 }
 
 .font-times-new-roman {
-    font-family: "Times New Roman", serif;
+    font-family: "Times New Roman", serif !important;
+}
+
+.font-times-new-roman button {
+    font-family: "Times New Roman", serif !important;
 }
 
 .font-verdana {
-    font-family: Verdana, sans-serif;
+    font-family: Verdana, sans-serif !important;
+}
+
+.font-verdana button {
+    font-family: Verdana, sans-serif !important;
 }
 
 .font-courier-new {
-    font-family: "Courier New", monospace;
+    font-family: "Courier New", monospace !important;
+}
+
+.font-courier-new button {
+    font-family: "Courier New", monospace !important;
 }
 
 .preview-text {
@@ -42,6 +58,11 @@
 
 
 .single-day-regular {
-    font-size: 15px  !important;
+    font-size: 20px  !important;
+    font-family: "Single Day", serif !important;
+}
+
+.single-day-regular button {
+    font-size: 20px  !important;
     font-family: "Single Day", serif !important;
 }

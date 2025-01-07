@@ -1,6 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Cabinet = ({ onSelect, isSelected, isDeleteMode }) => {
+
+    const [selectedFontStyle, setSelectedFontStyle] = useState(() => {
+        return localStorage.getItem('selectedFontStyle') || 'default';
+      });
+
+      useEffect(() => {
+        localStorage.setItem('selectedFontStyle', selectedFontStyle);
+      }, [selectedFontStyle]);
+
     return (
         <div
         className={`cabinet ${isSelected ? 'selected' : ''}`}

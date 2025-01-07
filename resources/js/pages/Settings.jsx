@@ -7,38 +7,30 @@ import Privacy from '../components/Privacy';
 import AccountManagement from '../components/AccountManagement';
 
 const SettingsPage = () => {
-  const [selectedFontStyle, setSelectedFontStyle] = useState(() => {
-    return localStorage.getItem('selectedFontStyle') || 'default';
-  });
-
-  useEffect(() => {
-    localStorage.setItem('selectedFontStyle', selectedFontStyle);
-  }, [selectedFontStyle]);
-
   return (
-    <div style={{ display: 'flex' }} className={selectedFontStyle}>
+    <div style={{ display: 'flex' }}>
       <Sidebar />
-      <div className={`content ${selectedFontStyle}`}>
-        <div className={`settings-grid ${selectedFontStyle}`}>
+      <div className={`content`}>
+        <div className={`settings-grid`}>
           <SettingsBox
             title="Profile Settings"
             description="Manage your personal information, change your display name, and update your profile picture."
-            content={<ProfileSettings selectedFontStyle={selectedFontStyle} />}
+            content={<ProfileSettings />}
           />
           <SettingsBox
             title="App Preferences"
-            description="Customize app appearance, notifications, and other preferences."
-            content={<AppPreferences selectedFontStyle={selectedFontStyle} setSelectedFontStyle={setSelectedFontStyle} />}
+            description="Customise app appearance, notifications, and other preferences."
+            content={<AppPreferences />}
           />
           <SettingsBox
             title="Privacy"
             description="Control your privacy settings, including data sharing and visibility options."
-            content={<Privacy selectedFontStyle={selectedFontStyle} />}
+            content={<Privacy />}
           />
           <SettingsBox
             title="Account & Family Management"
             description="Manage account settings, add family members, and oversee family permissions."
-            content={<AccountManagement selectedFontStyle={selectedFontStyle} />}
+            content={<AccountManagement />}
           />
         </div>
       </div>

@@ -6,6 +6,14 @@ const MealFinder = () => {
     const [search, setSearch] = useState("");
     const [meals, setMeals] = useState([]);
 
+    const [selectedFontStyle] = useState(() => {
+    return localStorage.getItem('selectedFontStyle') || 'default';
+    });
+
+    useEffect(() => {
+    localStorage.setItem('selectedFontStyle', selectedFontStyle);
+    }, [selectedFontStyle]);
+
     useEffect(() => {
         axios.get('/meals?search=').then(response => {
             console.log(response.data.data);
@@ -25,9 +33,9 @@ const MealFinder = () => {
     }
 
     return (
-        <div style={{ display: 'flex' }}>
+        <div style={{ display: 'flex' }} className={selectedFontStyle}>
         <Sidebar />
-        <div className="content">
+        <div className={`content ${selectedFontStyle}`}>
             Welcome to Meal Finder!
             <br />
             <input type="text" value={search} onChange={handleSearch}/><br />

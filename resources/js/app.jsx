@@ -6,11 +6,14 @@ import { BrowserRouter } from 'react-router-dom';
 
 import App from './components/App';
 import { AuthProvider } from './AuthContext';
+import { PreferencesProvider } from './FontContext';
 
 ReactDOM.createRoot(document.getElementById('app')).render(
     <BrowserRouter>
-        <AuthProvider>
-            <App />
-        </AuthProvider>
+        <PreferencesProvider>
+            <AuthProvider>
+                <App />
+            </AuthProvider>
+        </PreferencesProvider>
     </BrowserRouter>
 );

@@ -1,74 +1,55 @@
 import React, { useState, useEffect } from 'react';
 import '../../css/AppPreferences.css'; // Ensure the correct import path
+import { useFont } from '../FontContext';
 
-const AppPreferences = ({ selectedFontStyle, setSelectedFontStyle }) => {
-    const [isDarkMode, setIsDarkMode] = useState(() => {
-        return JSON.parse(localStorage.getItem('isDarkMode')) || false;
-    });
-
-    const [NotificationsOn, setNotificationsOn] = useState(() => {
-        return JSON.parse(localStorage.getItem('NotificationsOn')) || false;
-    });
-
-    useEffect(() => {
-        const savedFontStyle = localStorage.getItem('selectedFontStyle');
-        if (savedFontStyle) {
-            setSelectedFontStyle(savedFontStyle);
-        }
-    }, [setSelectedFontStyle]);
+const AppPreferences = () => {
+    const {notification, selectedTheme, setSelectedFontStyle, setNotification, setSelectedTheme} = useFont();
 
     const handleToggletheme = () => {
-        setIsDarkMode((prevMode) => {
-            const newMode = !prevMode;
-            localStorage.setItem('isDarkMode', JSON.stringify(newMode));
-            return newMode;
-        });
+        if (selectedTheme === 'dark-theme') {
+            setSelectedTheme('light-theme');
+        } else {
+            setSelectedTheme('dark-theme');
+        }
     };
 
     const handleToggleNotifications = () => {
-        setNotificationsOn((prevNotifications) => {
-            const newNotifications = !prevNotifications;
-            localStorage.setItem('NotificationsOn', JSON.stringify(newNotifications));
-            return newNotifications;
-        });
+        setNotification(!notification);
     };
 
     const handleFontStyleChange = (event) => {
         const newFontStyle = event.target.value;
         setSelectedFontStyle(newFontStyle);
-        localStorage.setItem('selectedFontStyle', newFontStyle);
     };
 
     return (
         <div
-            className={`appPreferences-settings ${
-                isDarkMode ? "dark-theme" : "light-theme"
-            } ${selectedFontStyle}`} // Apply the selected font style class here
+            className={`appPreferences-settings ${selectedTheme}`}
         >
             <ul className="appPreferences-list">
                 <li>
-                    <strong className={selectedFontStyle}>Themes:</strong> {/* Apply the class here */}
+                    <strong>Themes:</strong> {}
                 </li>
                 <li>
                     <div className="theme-toggle-container">
-                        <span className={`theme-label ${selectedFontStyle}`}>Light</span> {/* Apply the class here */}
+                        <span className={`theme-label`}>Light</span> {/* Apply the class here */}
                         <label className="theme-toggle">
                             <input
                                 type="checkbox"
-                                checked={isDarkMode}
+                                checked={selectedTheme === 'dark-theme'}
                                 onChange={handleToggletheme}
                             />
                             <span className="toggle-slider" />
                         </label>
-                        <span className={`theme-label ${selectedFontStyle}`}>Dark</span> {/* Apply the class here */}
+                        <span className={`theme-label`}>Dark</span> {/* Apply the class here */}
                     </div>
                 </li>
                 <li>
                     <div className="font-style-container">
-                        <strong className={selectedFontStyle}>Font Style:</strong> {/* Apply the class here */}
+                        <strong>Font Style:</strong> {/* Apply the class here */}
                         <select
                             onChange={handleFontStyleChange}
-                            className={`font-style-dropdown ${selectedFontStyle}`} // Apply the class here
+                            className={`font-style-dropdown`} // Apply the class here
                         >
                             <option value="" disabled>
                                 Select Font Style
@@ -82,20 +63,20 @@ const AppPreferences = ({ selectedFontStyle, setSelectedFontStyle }) => {
                     </div>
                 </li>
                 <li>
-                    <strong className={selectedFontStyle}>Notifications:</strong> {/* Apply the class here */}
+                    <strong>Notifications:</strong> {/* Apply the class here */}
                 </li>
                 <li>
                     <div className="Notifications-toggle-container">
-                        <span className={`Notifications-label ${selectedFontStyle}`}>Off</span> {/* Apply the class here */}
+                        <span className={`Notifications-label`}>Off</span> {/* Apply the class here */}
                         <label className="Notifications-toggle">
                             <input
                                 type="checkbox"
-                                checked={NotificationsOn}
+                                checked={notification}
                                 onChange={handleToggleNotifications}
                             />
                             <span className="Notifications-toggle-slider" />
                         </label>
-                        <span className={`Notifications-label ${selectedFontStyle}`}>On</span> {/* Apply the class here */}
+                        <span className={`Notifications-label`}>On</span> {/* Apply the class here */}
                     </div>
                 </li>
             </ul>
