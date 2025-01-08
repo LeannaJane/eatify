@@ -16,6 +16,23 @@
     padding: 0;
 }
 
+.register-background{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position:  center;
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(116, 160, 116);
+}
+
+
 
   .homepage-title {
     font-size: 3rem;
@@ -47,11 +64,10 @@
 /* Styling for the "Don't have an account?" text */
 .signup-container p {
     margin: 0;
-    font-size: 1rem;
+    font-size: 1.5rem;
     text-align: center;
     color: rgb(0, 0, 0);
     padding: 0px 0px 5% 0%;
-
 
 }
 
@@ -75,7 +91,6 @@
 }
 
 
-
 /*Login CSS*/
 
 .login-container {
@@ -84,7 +99,6 @@
     left: 15%;
     padding: 20px;
     border-radius: 8px;
-
     box-sizing: border-box;
 
 }
