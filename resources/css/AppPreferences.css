@@ -24,7 +24,7 @@
     font-family: Arial, sans-serif !important;
 }
 
-.font-arial button {
+.font-arial button, .font-arial input {
     font-family: Arial, sans-serif !important;
 }
 
@@ -32,7 +32,7 @@
     font-family: "Times New Roman", serif !important;
 }
 
-.font-times-new-roman button {
+.font-times-new-roman button, .font-times-new-roman input {
     font-family: "Times New Roman", serif !important;
 }
 
@@ -40,7 +40,7 @@
     font-family: Verdana, sans-serif !important;
 }
 
-.font-verdana button {
+.font-verdana button, .font-verdana input {
     font-family: Verdana, sans-serif !important;
 }
 
@@ -48,21 +48,20 @@
     font-family: "Courier New", monospace !important;
 }
 
-.font-courier-new button {
+.font-courier-new button, .font-courier-new input {
     font-family: "Courier New", monospace !important;
 }
-
-.preview-text {
-    margin-top: 20px;
-}
-
 
 .single-day-regular {
     font-size: 20px  !important;
     font-family: "Single Day", serif !important;
 }
 
-.single-day-regular button {
+.single-day-regular button, .single-day-regular input {
     font-size: 20px  !important;
     font-family: "Single Day", serif !important;
+}
+
+.preview-text {
+    margin-top: 20px;
 }
