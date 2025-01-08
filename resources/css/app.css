@@ -3,6 +3,7 @@
 @import './settings.css';
 @import './togglebutton.css';
 @import './AppPreferences.css';
+@import './Ui.css';
 
 body, html, #app {
     margin: 0;

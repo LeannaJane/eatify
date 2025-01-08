@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../AuthContext';
+import Login from './Login';
 
 const HomePage = () => {
   const { isLoggedIn } = useAuth();
@@ -21,20 +22,17 @@ const HomePage = () => {
   }, [isLoggedIn, navigate]);
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }} className={selectedFontStyle}>
-      <div className="content">
-        <h1>Welcome to Eatify</h1>
-        {!isLoggedIn && (
-          <div style={{ marginTop: '20px' }}>
-            <Link to="/login">
-              <button className="primary-button">Login</button>
-            </Link>
+    <div className={`homepage-background ${selectedFontStyle}`}>
+      <div className="green-bar left"></div>
+          <h1 className="homepage-title">Eatify</h1>
+            <Login />
+          <div className="signup-container">
+            <p>Don't have an account?</p>
             <Link to="/register">
-              <button className="secondary-button" style={{ marginLeft: '10px' }}>Register</button>
+              <button className="secondary-button sign-up-button">Sign Up</button>
             </Link>
-          </div>
-        )}
-      </div>
+        </div>
+      <div className="green-bar right"></div>
     </div>
   );
 };

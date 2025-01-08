@@ -1,10 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Router from '../router/Index';
 
 const App = () => {
-  return (
-      <Router></Router>
-  )
-}
+  useEffect(() => {
+    const handleWheel = (event) => {
+      if (event.ctrlKey) {
+        event.preventDefault(); // Prevent zoom when the Ctrl key is pressed
+      }
+    };
 
-export default App
+    document.addEventListener('wheel', handleWheel, { passive: false });
+
+    return () => {
+      document.removeEventListener('wheel', handleWheel);
+    };
+  }, []);
+
+  return (
+      <Router />
+  );
+};
+
+export default App;
