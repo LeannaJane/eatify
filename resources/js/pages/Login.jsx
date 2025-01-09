@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useAuth } from '../AuthContext';
 
 const Login = () => {
@@ -10,16 +10,24 @@ const Login = () => {
         setFormData({ ...formData, [name]: value });
     };
 
+    const [selectedFontStyle] = useState(() => {
+        return localStorage.getItem('selectedFontStyle') || 'default';
+    });
+
+    useEffect(() => {
+        localStorage.setItem('selectedFontStyle', selectedFontStyle);
+    }, [selectedFontStyle]);
+
     return (
-        <div className="login-container">
-            <h1 className="login-heading">Login</h1>
+        <div className={`login-container ${selectedFontStyle}`}>
+            <h1 className={`login-heading ${selectedFontStyle}`}>Login</h1>
             <input
                 type="text"
                 name="email"
                 placeholder="Enter Email address"
                 value={formData.email}
                 onChange={handleChange}
-                className="login-input"
+                className={`login-input ${selectedFontStyle}`}
             />
             <br />
             <input
@@ -28,12 +36,12 @@ const Login = () => {
                 placeholder="Enter Password"
                 value={formData.password}
                 onChange={handleChange}
-                className="login-input"
+                className={`login-input ${selectedFontStyle}`}
             />
             <br />
             <button
                 onClick={() => login(formData)}
-                className="login-button"
+                className={`login-button ${selectedFontStyle}`}
             >
                 Login
             </button>
