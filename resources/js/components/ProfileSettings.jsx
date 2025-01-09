@@ -38,7 +38,7 @@ const ProfileSettings = () => {
     };
 
     return (
-        <div className={`profile-settings`}>
+        <div className="profile-settings">
             <ul className="profile-list">
                 <li>
                     <strong>Name:</strong>
@@ -54,7 +54,7 @@ const ProfileSettings = () => {
                     )}
                     <button
                         onClick={() => handleEditClick("name")}
-                        className={`edit-button`}
+                        className="edit-button"
                     >
                         <img src={editIconPath} alt="Edit" className="edit-icon" />
                     </button>
@@ -73,54 +73,52 @@ const ProfileSettings = () => {
                     )}
                     <button
                         onClick={() => handleEditClick("email")}
-                        className={`edit-button`}
+                        className="edit-button"
                     >
                         <img src={editIconPath} alt="Edit" className="edit-icon" />
                     </button>
                 </li>
                 <li>
-                    <strong >Password:</strong>
+                    <strong>Password:</strong>
                     {editableField === "password" ? (
                         <input
                             type="password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             placeholder="Enter a new password"
-
                         />
                     ) : (
-                        <span >{password}</span>
+                        <span>{password}</span>
                     )}
                     <button
                         onClick={() => handleEditClick("password")}
-                        className={`edit-button`}
+                        className="edit-button"
                     >
                         <img src={editIconPath} alt="Edit" className="edit-icon" />
                     </button>
                 </li>
                 <li>
-                    <strong >Profile Picture:</strong>
+                    <strong>Profile Picture:</strong>
                     {editableField === "profilePic" ? (
                         <input
                             type="file"
                             accept="image/*"
                             onChange={handleProfilePictureChange}
-
                         />
                     ) : (
                         profilePicture ? (
                             <img
                                 src={profilePicture}
                                 alt="Profile"
-                                className={`profile-img-preview`}
+                                className="profile-img-preview"
                             />
                         ) : (
-                            <span >No Profile Picture</span>
+                            <span>No Profile Picture</span>
                         )
                     )}
                     <button
                         onClick={() => handleEditClick("profilePic")}
-                        className={`edit-button`}
+                        className="edit-button"
                     >
                         <img src={editIconPath} alt="Edit" className="edit-icon" />
                     </button>

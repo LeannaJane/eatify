@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import Sidebar from '../components/Sidebar';
 import Cabinet from '../components/Cabinet';
-import { useAuth } from '../AuthContext';
 
 const CabinetPage = () => {
   const [cabinets, setCabinets] = useState([]);
   const [selectedCabinets, setSelectedCabinets] = useState([]);
   const [isDeleteMode, setIsDeleteMode] = useState(false);
 
-    useEffect(() => {
-        axios.get('/cabinets').then(response => {
-            setCabinets(response.data);
-        });
-    }, []);
+  useEffect(() => {
+    axios.get('/cabinets').then(response => {
+      setCabinets(response.data);
+    });
+  }, []);
 
   const addCabinet = async () => {
     let cabinet = await axios.post('/cabinet/create');
@@ -21,18 +21,14 @@ const CabinetPage = () => {
 
   const deleteCabinet = () => {
     if (selectedCabinets.length > 0) {
-        daxios.post('/cabinets/delete', {'ids': selectedCabinets}).then(() => {
-            const newCabinets = cabinets.filter(cabinet => !selectedCabinets.includes(cabinet.id));
-            setCabinets(newCabinets);
-            setSelectedCabinets([]);
-            setIsDeleteMode(false);
-        });
-    } else {
-      if (isDeleteMode) {
+      axios.post('/cabinets/delete', { ids: selectedCabinets }).then(() => {
+        const newCabinets = cabinets.filter(cabinet => !selectedCabinets.includes(cabinet.id));
+        setCabinets(newCabinets);
+        setSelectedCabinets([]);
         setIsDeleteMode(false);
-      } else {
-        setIsDeleteMode(true);
-      }
+      });
+    } else {
+      setIsDeleteMode(!isDeleteMode);
     }
   };
 
@@ -52,10 +48,7 @@ const CabinetPage = () => {
         <button className="add-cabinet-button" onClick={addCabinet}>
           Add
         </button>
-        <button
-          className="delete-cabinet-button"
-          onClick={deleteCabinet}
-        >
+        <button className="delete-cabinet-button" onClick={deleteCabinet}>
           Delete
         </button>
         <div className="cabinet-container">

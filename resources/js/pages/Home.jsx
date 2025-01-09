@@ -24,14 +24,14 @@ const HomePage = () => {
   return (
     <div className={`homepage-background ${selectedFontStyle}`}>
       <div className="green-bar left"></div>
-          <h1 className="homepage-title">Eatify</h1>
-            <Login />
-          <div className="signup-container">
-            <p>Don't have an account?</p>
-            <Link to="/register">
-              <button className="secondary-button sign-up-button">Sign Up</button>
-            </Link>
-        </div>
+      <h1 className="homepage-title">Eatify</h1>
+      <Login />
+      <div className="signup-container">
+        <p>Don't have an account?</p>
+        <Link to="/register">
+          <button className="secondary-button sign-up-button">Sign Up</button>
+        </Link>
+      </div>
       <div className="green-bar right"></div>
     </div>
   );

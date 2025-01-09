@@ -1,11 +1,11 @@
 import React from 'react';
 
-const SettingsBox = ({ title, description, content, selectedFontStyle }) => {
+const SettingsBox = ({ title, description, content }) => {
   return (
-    <div className={`settings-box ${selectedFontStyle}`}>
-      <h2 className={selectedFontStyle}>{title}</h2>
-      <p className={selectedFontStyle}>{description}</p>
-      <div className={`settings-content ${selectedFontStyle}`}>
+    <div className="settings-box">
+      <h2>{title}</h2>
+      <p>{description}</p>
+      <div className="settings-content">
         {content}
       </div>
     </div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useAuth } from '../AuthContext';
 
 const Sidebar = () => {
@@ -17,9 +17,9 @@ const Sidebar = () => {
                     <h2 className="companyName">Eatify</h2>
                     <button className="toggle-button" onClick={toggleSidebar}>
                         <img
-                        src="storage/Images/back-arrow.png"
-                        alt={isOpen ? "Close Sidebar" : "Open Sidebar"}
-                        className="toggle-icon"
+                            src="storage/Images/back-arrow.png"
+                            alt={isOpen ? "Close Sidebar" : "Open Sidebar"}
+                            className="toggle-icon"
                         />
                     </button>
                 </div>
@@ -54,7 +54,7 @@ const Sidebar = () => {
                     </li>
                     <li className="menu-item">
                         <img src="storage/Images/setting.png" alt="setting" className="menu-icon" />
-                       <NavLink to="/settings">Settings</NavLink>
+                        <NavLink to="/settings">Settings</NavLink>
                     </li>
                 </ul>
                 {isLoggedIn && (
@@ -62,14 +62,13 @@ const Sidebar = () => {
                 )}
             </div>
 
-
             {!isOpen && (
                 <button className="reopen-button" onClick={toggleSidebar}>
-                <img
-                    src="storage/Images/forward-arrow.png"
-                    alt="Reopen Sidebar"
-                    className="toggle-icon"
-                />
+                    <img
+                        src="storage/Images/forward-arrow.png"
+                        alt="Reopen Sidebar"
+                        className="toggle-icon"
+                    />
                 </button>
             )}
         </div>

@@ -1,4 +1,3 @@
-// custom-pages/Dashboard.jsx
 import React, { useEffect, useState } from 'react';
 import Sidebar from '../components/Sidebar';
 

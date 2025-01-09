@@ -1,9 +1,9 @@
 @import './Sidebar.css';
-@import './cabinets.css';
-@import './settings.css';
-@import './togglebutton.css';
+@import './Cabinets.css';
+@import './Settings.css';
+@import './ToggleButton.css';
 @import './AppPreferences.css';
-@import './Ui.css';
+@import './UI.css';
 
 body, html, #app {
     margin: 0;

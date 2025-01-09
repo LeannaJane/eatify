@@ -16,9 +16,7 @@ const App = () => {
     };
   }, []);
 
-  return (
-      <Router />
-  );
+  return <Router />;
 };
 
 export default App;

@@ -1,5 +1,4 @@
-/*Home Page CSS*/
-
+/* Home Page CSS */
 .homepage-background {
     display: flex;
     flex-direction: column;
@@ -8,7 +7,7 @@
     background-image: url("/storage/app/public/SVGs/loginpage.svg");
     background-size: cover;
     background-repeat: no-repeat;
-    background-position:  center;
+    background-position: center;
     min-height: 100vh;
     width: 100%;
     position: relative;
@@ -16,14 +15,14 @@
     padding: 0;
 }
 
-.register-background{
+.register-background {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     background-size: cover;
     background-repeat: no-repeat;
-    background-position:  center;
+    background-position: center;
     min-height: 100vh;
     width: 100%;
     position: relative;
@@ -32,15 +31,13 @@
     background-color: rgb(116, 160, 116);
 }
 
-
-
-  .homepage-title {
+.homepage-title {
     font-size: 3rem;
     text-align: center;
     margin: 0;
     position: relative;
     padding: 80px 0;
-  }
+}
 
 .home-page-content {
     width: 100%;
@@ -51,8 +48,7 @@
     margin: 0 auto;
 }
 
-/*SignUp CSS*/
-
+/* SignUp CSS */
 .signup-container {
     display: flex;
     flex-direction: column;
@@ -68,11 +64,9 @@
     text-align: center;
     color: rgb(0, 0, 0);
     padding: 0px 0px 5% 0%;
-
 }
 
-
-.sign-up-button{
+.sign-up-button {
     width: 350px;
     background-color: rgb(116, 160, 116);
     padding: 12px;
@@ -87,12 +81,9 @@
 
 .sign-up-button:hover {
     background-color: #699a6e;
-
 }
 
-
-/*Login CSS*/
-
+/* Login CSS */
 .login-container {
     position: absolute;
     top: 18%;
@@ -100,11 +91,9 @@
     padding: 20px;
     border-radius: 8px;
     box-sizing: border-box;
-
 }
 
-.login-input{
-
+.login-input {
     width: 100%;
     padding: 12px;
     margin: 10px 0;
@@ -113,7 +102,6 @@
     font-size: 16px;
     box-sizing: border-box;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-
 }
 
 .login-button {
@@ -128,51 +116,52 @@
     width: 350px;
     box-sizing: border-box;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-
 }
 
 .login-heading {
     font-size: 2rem;
     margin-bottom: 20px;
     text-align: center;
-
 }
-
 
 .login-button:hover {
     background-color: #699a6e;
-
 }
 
-/*Greenbar CSS*/
+/* Greenbar CSS */
 .green-bar {
     position: absolute;
     top: 0;
     bottom: 0;
     background-color: rgb(116, 160, 116);
     width: 10%;
-  }
+}
 
-  .left {
+.left {
     left: 0;
-  }
+}
 
-  .right {
+.right {
     right: 0;
-  }
+}
 
-  .container {
+.container {
     display: flex;
     justify-content: center;
     width: 80%;
     height: 100%;
-  }
+}
 
-/* Media Querys for screen sizes.*/
+/* Media Queries */
 @media (max-width: 1100px) {
+    body {
+        background-color: rgb(116, 160, 116);
+    }
     .signup-container {
         bottom: 1%;
-        right: 1%;
+        right: 50%;
+        transform: translateX(50%);
+        text-align: center;
     }
     .green-bar {
         display: none;
@@ -180,15 +169,20 @@
     .login-container {
         position: absolute;
         top: 18%;
-        left: 0%;
+        left: 50%;
+        transform: translateX(-50%);
         padding: 20px;
         border-radius: 8px;
         box-sizing: border-box;
+        text-align: center;
     }
-    .sign-up-button{
-        width: 150px;
+    .sign-up-button {
+        width: 350px;
+        margin: 0 auto;
     }
-
+    .homepage-background {
+        background: none;
+    }
     .signup-container p {
         margin: 0;
         font-size: 1rem;
@@ -196,9 +190,9 @@
         color: rgb(0, 0, 0);
         padding: 0px 0px 5% 1%;
     }
-
-    .login-button{
-        width: 250px;
+    .login-button {
+        width: 350px;
+        margin: 0 auto;
     }
 }
 
@@ -208,10 +202,6 @@
         top: 50%;
         transform: translateY(-50%);
     }
-
-
-
-
 }
 
 @media (min-width: 1440px) and (max-width: 1800px) {
@@ -220,8 +210,6 @@
         top: 50%;
         transform: translateY(-50%);
     }
-
-
 }
 
 @media (min-width: 1800px) {
@@ -230,12 +218,4 @@
         top: 55%;
         transform: translateY(-50%);
     }
-
-
-
 }
-
-
-
-
-

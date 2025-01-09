@@ -1,3 +1,4 @@
+/* Theme Toggle CSS */
 .theme-toggle-container {
     display: flex;
     align-items: center;
@@ -43,6 +44,19 @@
     transform: translateX(20px);
 }
 
+/* Notifications Toggle CSS */
+.Notifications-toggle-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-left: 0.1rem;
+}
+
+.Notifications-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
 
 .Notifications-toggle input[type="checkbox"] {
     width: 40px;
@@ -60,19 +74,6 @@
     background-color: #000000;
 }
 
-.Notifications-toggle-container{
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding-left: 0.1rem;
-}
-
-.Notifications-toggle{
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
 .Notifications-toggle input[type="checkbox"]::after {
     content: '';
     position: absolute;
@@ -85,12 +86,23 @@
     transition: transform 0.3s;
 }
 
-
 .Notifications-toggle input[type="checkbox"]:checked::after {
     transform: translateX(20px);
 }
 
+/* Activity Tracking Toggle CSS */
+.activityTracking-toggle-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-left: 0.1rem;
+}
 
+.activityTracking-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
 
 .activityTracking-toggle input[type="checkbox"] {
     width: 40px;
@@ -108,19 +120,6 @@
     background-color: #000000;
 }
 
-.activityTracking-toggle-container{
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding-left: 0.1rem;
-}
-
-.activityTracking-toggle{
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
 .activityTracking-toggle input[type="checkbox"]::after {
     content: '';
     position: absolute;
@@ -133,9 +132,6 @@
     transition: transform 0.3s;
 }
 
-
 .activityTracking-toggle input[type="checkbox"]:checked::after {
     transform: translateX(20px);
 }
-
-

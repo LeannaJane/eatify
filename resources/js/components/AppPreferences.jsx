@@ -1,16 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import '../../css/AppPreferences.css'; // Ensure the correct import path
+import React from 'react';
+import '../../css/AppPreferences.css';
 import { useFont } from '../FontContext';
 
 const AppPreferences = () => {
-    const {notification, selectedTheme, setSelectedFontStyle, setNotification, setSelectedTheme} = useFont();
+    const { notification, selectedTheme, setSelectedFontStyle, setNotification, setSelectedTheme } = useFont();
 
-    const handleToggletheme = () => {
-        if (selectedTheme === 'dark-theme') {
-            setSelectedTheme('light-theme');
-        } else {
-            setSelectedTheme('dark-theme');
-        }
+    const handleToggleTheme = () => {
+        setSelectedTheme(selectedTheme === 'dark-theme' ? 'light-theme' : 'dark-theme');
     };
 
     const handleToggleNotifications = () => {
@@ -18,38 +14,35 @@ const AppPreferences = () => {
     };
 
     const handleFontStyleChange = (event) => {
-        const newFontStyle = event.target.value;
-        setSelectedFontStyle(newFontStyle);
+        setSelectedFontStyle(event.target.value);
     };
 
     return (
-        <div
-            className={`appPreferences-settings ${selectedTheme}`}
-        >
+        <div className={`appPreferences-settings ${selectedTheme}`}>
             <ul className="appPreferences-list">
                 <li>
-                    <strong>Themes:</strong> {}
+                    <strong>Themes:</strong>
                 </li>
                 <li>
                     <div className="theme-toggle-container">
-                        <span className={`theme-label`}>Light</span> {/* Apply the class here */}
+                        <span className="theme-label">Light</span>
                         <label className="theme-toggle">
                             <input
                                 type="checkbox"
                                 checked={selectedTheme === 'dark-theme'}
-                                onChange={handleToggletheme}
+                                onChange={handleToggleTheme}
                             />
                             <span className="toggle-slider" />
                         </label>
-                        <span className={`theme-label`}>Dark</span> {/* Apply the class here */}
+                        <span className="theme-label">Dark</span>
                     </div>
                 </li>
                 <li>
                     <div className="font-style-container">
-                        <strong>Font Style:</strong> {/* Apply the class here */}
+                        <strong>Font Style:</strong>
                         <select
                             onChange={handleFontStyleChange}
-                            className={`font-style-dropdown`} // Apply the class here
+                            className="font-style-dropdown"
                         >
                             <option value="" disabled>
                                 Select Font Style
@@ -63,11 +56,11 @@ const AppPreferences = () => {
                     </div>
                 </li>
                 <li>
-                    <strong>Notifications:</strong> {/* Apply the class here */}
+                    <strong>Notifications:</strong>
                 </li>
                 <li>
                     <div className="Notifications-toggle-container">
-                        <span className={`Notifications-label`}>Off</span> {/* Apply the class here */}
+                        <span className="Notifications-label">Off</span>
                         <label className="Notifications-toggle">
                             <input
                                 type="checkbox"
@@ -76,7 +69,7 @@ const AppPreferences = () => {
                             />
                             <span className="Notifications-toggle-slider" />
                         </label>
-                        <span className={`Notifications-label`}>On</span> {/* Apply the class here */}
+                        <span className="Notifications-label">On</span>
                     </div>
                 </li>
             </ul>
