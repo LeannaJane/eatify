@@ -1,40 +1,31 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
-const Cabinet = ({ onSelect, isSelected, isDeleteMode }) => {
-    const [selectedFontStyle] = useState(() => {
-        return localStorage.getItem('selectedFontStyle') || 'default';
-    });
+const Cabinet = ({ title, items, onSelect, isSelected, isDeleteMode }) => {
+  const validItems = Array.isArray(items) ? items : [];
 
-    useEffect(() => {
-        localStorage.setItem('selectedFontStyle', selectedFontStyle);
-    }, [selectedFontStyle]);
+  return (
+    <div
+      className={`cabinet ${isSelected ? 'selected' : ''}`}
+      onClick={onSelect}
+    >
+      <div className="cabinet-content">
+        <div className="title">{title}</div>
+        <ul className="cabinet-list">
+          {validItems.length > 0 ? (
+            validItems.map((item, index) => (
+              <li key={index}>{item.item}</li>
+            ))
+          ) : (
+            <li>No items in this cabinet</li>
+          )}
+        </ul>
+      </div>
 
-    return (
-        <div
-            className={`cabinet ${isSelected ? 'selected' : ''}`}
-            onClick={onSelect}
-        >
-            <div className="cabinet-content">
-                <div className="title">Fridge</div>
-                <ul className="cabinet-list">
-                    <li>Milk</li>
-                    <li>Grated Cheese</li>
-                    <li>Smoked Ham</li>
-                    <li>Yogurt</li>
-                    <li>Yogurt</li>
-                    <li>Yogurt</li>
-                    <li>Yogurt</li>
-                    <li>Yogurt</li>
-                    <li>Yogurt</li>
-                    <li>Yogurt</li>
-                </ul>
-            </div>
-
-            {isDeleteMode && (
-                <div className={`circle-button ${isSelected ? 'selected' : ''}`}></div>
-            )}
-        </div>
-    );
+      {isDeleteMode && (
+        <div className={`circle-button ${isSelected ? 'selected' : ''}`}></div>
+      )}
+    </div>
+  );
 };
 
 export default Cabinet;

@@ -8,7 +8,8 @@ class Cabinet extends Model
 {
     protected $fillable = ['title', 'user_id'];
 
-    public function items() {
+    public function items()
+    {
         return $this->hasMany(CabinetItem::class);
     }
 }

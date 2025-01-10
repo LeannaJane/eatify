@@ -42,3 +42,17 @@ a, a:visited {
 ::-webkit-scrollbar-thumb:hover {
     background: #555;
 }
+
+.selection-circle {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #000;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+
+  .selection-circle.selected {
+    background-color: #000;
+  }
