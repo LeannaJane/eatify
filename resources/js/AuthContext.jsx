@@ -10,11 +10,16 @@ export const AuthProvider = ({ children }) => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     useEffect(() => {
-        const storedUser = JSON.parse(localStorage.getItem('user'));
-        if (storedUser) {
-            setUser(storedUser);
-            setIsLoggedIn(true);
-        }
+        axios.get('/auth/check').then(response => {
+            if (response.data != null) {
+                setUser(response.data);
+                setIsLoggedIn(true);
+            } else {
+                setUser(null);
+                setIsLoggedIn(false);
+                navigate('/login');
+            }
+        });
     }, []);
 
     const login = (formData) => {
@@ -23,11 +28,7 @@ export const AuthProvider = ({ children }) => {
                 const userData = response.data.data;
                 setUser(userData);
                 setIsLoggedIn(true);
-
-                // Save user data to localStorage
-                localStorage.setItem('user', JSON.stringify(userData));
-
-                navigate('/');
+                navigate('/dashboard');
             } else {
 
             }
@@ -58,9 +59,7 @@ export const AuthProvider = ({ children }) => {
                 setUser(userData);
                 setIsLoggedIn(true);
 
-                localStorage.setItem('user', JSON.stringify(userData));
-
-                navigate('/');
+                navigate('/dashboard');
 
             } else {
 
