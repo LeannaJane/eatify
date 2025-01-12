@@ -24,6 +24,7 @@ Route::prefix('api')->group(function () {
         Route::get('/cabinets', [CabinetController::class, 'index']);
         Route::post('/cabinet/create', [CabinetController::class, 'create']);
         Route::post('/cabinet/{cabinet_id}/add-item', [CabinetController::class, 'addItem']);
+        Route::post('/cabinet/{cabinet_id}/update', [CabinetController::class, 'update']);
         Route::post('/cabinets/delete', [CabinetController::class, 'delete']);
         Route::post('/cabinet/{cabinet_id}/delete-item', [CabinetController::class, 'deleteItem']);
 

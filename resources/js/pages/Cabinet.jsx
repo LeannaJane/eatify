@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Sidebar from '../components/Sidebar';
 import Cabinet from '../components/Cabinet';
+import EditCabinetModal from '../components/modals/EditCabinetModal';
 
 const CabinetPage = () => {
   const [cabinets, setCabinets] = useState([]);
@@ -11,6 +12,9 @@ const CabinetPage = () => {
   const [newCabinetTitle, setNewCabinetTitle] = useState('');
   const [itemPopupCabinetId, setItemPopupCabinetId] = useState(null);
   const [newItem, setNewItem] = useState('');
+
+  const [isModalOpen, setModalOpen] = useState(false);
+  const [selectedCabinet, setSelectedCabinet] = useState(null);
 
   useEffect(() => {
     axios.get('/cabinets').then(response => {
@@ -130,9 +134,26 @@ const CabinetPage = () => {
       });
   };
 
+    const handleEditClick = (cabinetData) => {
+        setSelectedCabinet(cabinetData);
+        setModalOpen(true);
+    }
 
+    const handleSave = (updatedCabinet) => {
+        axios.post(`/cabinet/${updatedCabinet.id}/update`, updatedCabinet).then(response => {
+            if (!response.data.error) {
+                setCabinets((prevCabinets) =>
+                    prevCabinets.map((cabinet) =>
+                      cabinet.id === response.data.data.id ? response.data.data : cabinet
+                    )
+                );
+            }
+        });
+        setSelectedCabinet(null);
+    };
 
   return (
+    <>
     <div style={{ display: 'flex' }}>
       <Sidebar />
       <div className="content">
@@ -155,11 +176,13 @@ const CabinetPage = () => {
           {cabinets.map(cabinet => (
             <div key={cabinet.id} className="cabinet-wrapper" onClick={() => handleCabinetClick(cabinet.id)}>
               <Cabinet
+                id={cabinet.id}
                 title={cabinet.title}
                 items={cabinet.items} // Pass items to the Cabinet component
                 onSelect={() => toggleCabinetSelection(cabinet.id)}
                 isSelected={selectedCabinets.includes(cabinet.id)}
                 isDeleteMode={isDeleteMode}
+                onEdit={handleEditClick}
               />
               <button
                 onClick={() => setItemPopupCabinetId(cabinet.id)}
@@ -217,6 +240,13 @@ const CabinetPage = () => {
         </div>
       )}
     </div>
+        <EditCabinetModal
+            isOpen={isModalOpen}
+            onClose={() => setModalOpen(false)}
+            cabinetData={selectedCabinet}
+            onSave={handleSave}
+        />
+    </>
   );
 };
 

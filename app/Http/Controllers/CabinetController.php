@@ -90,4 +90,47 @@ class CabinetController extends Controller
         return response()->json(['error' => false, 'data' => $cabinet->items]);
     }
 
+    public function update(Request $request, $cabinetId) {
+        $request->validate([
+            'id' => 'required|integer|exists:cabinets,id',
+            'title' => 'required|string|max:25',
+            //'validItems' => 'required|array',
+            //'validItems.*' => 'required|string'
+        ]);
+
+        $cabinet = Cabinet::where('id', $cabinetId)
+            ->where('user_id', Auth::id())
+            ->firstOrFail();
+
+        $cabinet->title = $request->get('title');
+        $cabinet->save();
+
+        $newItems = $request->get('validItems');
+
+        foreach ($newItems as $itemData) {
+            if (empty($itemData)) {
+                continue;
+            }
+
+            $item = $cabinet->items()->updateOrCreate(
+                [
+                    'item' => $itemData
+                ],
+                [
+                    'cabinet_id' => $cabinet->id,
+                    'item' => $itemData,
+                ]
+            );
+        }
+
+        $newItemNames = array_map(fn($item) => $item, $newItems);
+        $cabinet->items()->whereNotIn('item', $newItemNames)->delete();
+
+        $cabinet->refresh();
+
+        $cabinet->items;
+
+        return response()->json(['error' => false, 'data' => $cabinet]);
+    }
+
 }
