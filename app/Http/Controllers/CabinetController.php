@@ -87,7 +87,6 @@ class CabinetController extends Controller
                 ->where('cabinet_id', $cabinetId)
                 ->firstOrFail();
 
-            // Proceed with the deletion
             $item->delete();
 
             return response()->json(['error' => false, 'message' => 'Item deleted successfully']);
