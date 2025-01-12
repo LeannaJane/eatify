@@ -76,19 +76,18 @@ class CabinetController extends Controller
 
     public function deleteItem(Request $request, $cabinetId)
     {
-            $request->validate([
-                'itemId' => 'required|integer|exists:cabinet_items,id',
-            ]);
+        $request->validate([
+            'itemId' => 'required|integer|exists:cabinet_items,id',
+        ]);
 
-            $cabinet = Cabinet::where('id', $cabinetId)
-                ->where('user_id', Auth::id())
-                ->firstOrFail();
+        $cabinet = Cabinet::where('id', $cabinetId)
+            ->where('user_id', Auth::id())
+            ->firstOrFail();
 
-            $cabinet->items()->where('id', $request->input('itemId'))->delete();
-            $cabinet->refresh();
+        $cabinet->items()->where('id', $request->input('itemId'))->delete();
+        $cabinet->refresh();
 
-            return response()->json(['error' => false, 'data' => $cabinet->items]);
-
+        return response()->json(['error' => false, 'data' => $cabinet->items]);
     }
 
 }
