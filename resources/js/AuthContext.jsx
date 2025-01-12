@@ -17,7 +17,7 @@ export const AuthProvider = ({ children }) => {
             } else {
                 setUser(null);
                 setIsLoggedIn(false);
-                navigate('/login');
+                navigate('/');
             }
         });
     }, []);
