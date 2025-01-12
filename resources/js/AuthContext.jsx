@@ -11,8 +11,8 @@ export const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         axios.get('/auth/check').then(response => {
-            if (response.data != null) {
-                setUser(response.data);
+            if (response.data.data != null) {
+                setUser(response.data.data);
                 setIsLoggedIn(true);
             } else {
                 setUser(null);
