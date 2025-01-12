@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Cabinet;
 use App\Models\CabinetItem;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CabinetController extends Controller
 {
@@ -11,7 +12,7 @@ class CabinetController extends Controller
     public function index()
     {
         // Fetch cabinets and their associated items for the authenticated user
-        $cabinets = Cabinet::where('user_id', auth()->id())
+        $cabinets = Cabinet::where('user_id', Auth::id())
             ->with('items') // Directly eager load the related items
             ->get();
 
@@ -28,7 +29,7 @@ class CabinetController extends Controller
         // Create the new cabinet
         $cabinet = Cabinet::create([
             'title' => $request->input('title'),
-            'user_id' => auth()->id(),
+            'user_id' => Auth::id(),
         ]);
 
         return response()->json(['error' => false, 'data' => $cabinet]);
@@ -42,7 +43,7 @@ class CabinetController extends Controller
         ]);
 
         $cabinet = Cabinet::where('id', $cabinetId)
-            ->where('user_id', auth()->id()) // Ensure the cabinet belongs to the authenticated user
+            ->where('user_id', Auth::id()) // Ensure the cabinet belongs to the authenticated user
             ->firstOrFail();
 
         // Create the new item for the cabinet
@@ -60,7 +61,7 @@ class CabinetController extends Controller
         $ids = $request->input('ids');
 
         // Ensure the cabinets being deleted belong to the authenticated user
-        $cabinets = Cabinet::whereIn('id', $ids)->where('user_id', auth()->id())->get();
+        $cabinets = Cabinet::whereIn('id', $ids)->where('user_id', Auth::id())->get();
 
         if ($cabinets->isEmpty()) {
             return response()->json(['error' => true, 'data' => 'Cabinet not found']);
@@ -80,17 +81,13 @@ class CabinetController extends Controller
             ]);
 
             $cabinet = Cabinet::where('id', $cabinetId)
-                ->where('user_id', auth()->id())
+                ->where('user_id', Auth::id())
                 ->firstOrFail();
 
-            $item = CabinetItem::where('id', $request->input('itemId'))
-                ->where('cabinet_id', $cabinetId)
-                ->firstOrFail();
+            $cabinet->items()->where('id', $request->input('itemId'))->delete();
+            $cabinet->refresh();
 
-            // Proceed with the deletion
-            $item->delete();
-
-            return response()->json(['error' => false, 'message' => 'Item deleted successfully']);
+            return response()->json(['error' => false, 'data' => $cabinet->items]);
 
     }
 

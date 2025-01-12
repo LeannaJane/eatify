@@ -23,7 +23,7 @@ const CabinetPage = () => {
   }, []);
 
   // Fetch specific cabinet with items
-  const fetchCabinetItems = (cabinetId) => {
+  /*const fetchCabinetItems = (cabinetId) => {
     axios.get(`/cabinet/${cabinetId}`).then(response => {
       const cabinet = response.data.data;
 
@@ -39,10 +39,10 @@ const CabinetPage = () => {
     }).catch(error => {
       console.error('Error fetching cabinet items:', error);
     });
-  };
+  };*/
 
   const handleCabinetClick = (cabinetId) => {
-    fetchCabinetItems(cabinetId);
+    //fetchCabinetItems(cabinetId);
   };
 
   // Create a new cabinet
@@ -112,14 +112,18 @@ const CabinetPage = () => {
   const deleteItemToCabinet = (cabinetId, itemId) => {
     axios.post(`/cabinet/${cabinetId}/delete-item`, { itemId })
       .then(response => {
-        const updatedCabinetsFromBackend = cabinets.map(cabinet => {
-          if (cabinet.id === cabinetId) {
-            return { ...cabinet, items: response.data.data };
-          }
-          return cabinet;
-        });
-
-        setCabinets(updatedCabinetsFromBackend); // Ensure the local state reflects backend data
+        if(!response.data.error) {
+            setCabinets(prevCabinets =>
+                prevCabinets.map(cabinet =>
+                  cabinet.id === cabinetId
+                    ? {
+                        ...cabinet,
+                        items: cabinet.items = response.data.data
+                      }
+                    : cabinet
+                )
+            );
+        }
       })
       .catch(error => {
         console.error('Error deleting item:', error);
