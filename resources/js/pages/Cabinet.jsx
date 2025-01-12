@@ -136,7 +136,7 @@ const CabinetPage = () => {
     <div style={{ display: 'flex' }}>
       <Sidebar />
       <div className="content">
-        <h1 className="cabinet-title">Cabinet Page</h1>
+        <h1 className="cabinet-title">Your Storage</h1>
         <button
           className="add-cabinet-button"
           onClick={() => setShowPopup(true)}
