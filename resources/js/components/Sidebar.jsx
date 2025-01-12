@@ -42,7 +42,7 @@ const Sidebar = () => {
                     </li>
                     <li className="menu-item">
                         <img src="storage/Images/fridge.png" alt="fridge" className="menu-icon" />
-                        <NavLink to="/cabinet">Cabinet</NavLink>
+                        <NavLink to="/cabinet">Storage</NavLink>
                     </li>
                     <li className="menu-item">
                         <img src="storage/Images/family.png" alt="family" className="menu-icon" />
@@ -50,7 +50,7 @@ const Sidebar = () => {
                     </li>
                     <li className="menu-item">
                         <img src="storage/Images/shopping.png" alt="shopping" className="menu-icon" />
-                        Shopping
+                        <NavLink to="/ShoppingList">Shopping List</NavLink>
                     </li>
                     <li className="menu-item">
                         <img src="storage/Images/setting.png" alt="setting" className="menu-icon" />

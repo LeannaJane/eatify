@@ -154,9 +154,7 @@
 
 /* Media Queries */
 @media (max-width: 1100px) {
-    body {
-        background-color: rgb(116, 160, 116);
-    }
+
     .signup-container {
         bottom: 1%;
         right: 50%;

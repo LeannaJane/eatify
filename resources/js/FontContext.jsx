@@ -12,7 +12,7 @@ export const PreferencesProvider = ({ children }) => {
 
   const [notification, setNotification] = useState(() => {
     // Load initial font style from localStorage or default to 'default'
-    return localStorage.getItem('notifications') || false;
+    return localStorage.getItem('notifications') == 'true' || false;
   });
 
   const [selectedTheme, setSelectedTheme] = useState(() => {
